@@ -67,7 +67,7 @@
     "providerTypeAr": "مراكز الأشعة",
     "providerTypeEn": null,
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:59ad1b2fc74287de",
@@ -77,7 +77,7 @@
     "providerTypeAr": "Outpatient services",
     "providerTypeEn": null,
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-14-111",
@@ -386,8 +386,8 @@
     "nameEn": "Iris Optical Center - HO",
     "providerTypeAr": "مراكز البصريات",
     "providerTypeEn": "Optometry - Vision Service Center",
-    "locationCount": 4,
-    "activeLocationCount": 4
+    "locationCount": 5,
+    "activeLocationCount": 5
   },
   {
     "id": "org:15-5-25",
@@ -416,8 +416,8 @@
     "nameEn": "Optic Gallery Center - HO",
     "providerTypeAr": "مراكز البصريات",
     "providerTypeEn": "Optometry - Vision Service Center",
-    "locationCount": 14,
-    "activeLocationCount": 14
+    "locationCount": 15,
+    "activeLocationCount": 15
   },
   {
     "id": "org:15-14-67",
@@ -427,7 +427,7 @@
     "providerTypeAr": "مراكز البصريات",
     "providerTypeEn": "Optometry - Vision Service Center",
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-4-57",
@@ -457,7 +457,7 @@
     "providerTypeAr": "مراكز البصريات",
     "providerTypeEn": "Optometry - Vision Service Center",
     "locationCount": 29,
-    "activeLocationCount": 29
+    "activeLocationCount": 28
   },
   {
     "id": "org:15-5-21",
@@ -476,8 +476,8 @@
     "nameEn": "Baraka Optical Center.Giza - HO",
     "providerTypeAr": "مراكز البصريات",
     "providerTypeEn": "Optometry - Vision Service Center",
-    "locationCount": 36,
-    "activeLocationCount": 36
+    "locationCount": 37,
+    "activeLocationCount": 35
   },
   {
     "id": "org:15-14-36",
@@ -496,8 +496,8 @@
     "nameEn": "Perfect Smile Dental Center ( Dr. Shady Samir ) . Cairo - HO",
     "providerTypeAr": "مراكز الأسنان",
     "providerTypeEn": "Dental Center",
-    "locationCount": 1,
-    "activeLocationCount": 1
+    "locationCount": 2,
+    "activeLocationCount": 2
   },
   {
     "id": "org:15-15-251",
@@ -666,7 +666,7 @@
     "nameEn": "Dr. Ahmed Mahmoud Abdel Fattah ( Mega Clinic ). Cairo - HO",
     "providerTypeAr": "مراكز الأسنان",
     "providerTypeEn": "Dental Center",
-    "locationCount": 2,
+    "locationCount": 4,
     "activeLocationCount": 2
   },
   {
@@ -676,8 +676,8 @@
     "nameEn": "Dr. Teeth Dental Clinics (Dr. Mohamed Abdullah Sayed Hanafy). - HO",
     "providerTypeAr": "مراكز الأسنان",
     "providerTypeEn": "Dental Center",
-    "locationCount": 2,
-    "activeLocationCount": 2
+    "locationCount": 3,
+    "activeLocationCount": 3
   },
   {
     "id": "org:15-24-1352",
@@ -716,7 +716,7 @@
     "nameEn": "Dr. George Magdy Morshed. Cairo - HO",
     "providerTypeAr": "هيئة أطباء",
     "providerTypeEn": "Physician Clinic",
-    "locationCount": 2,
+    "locationCount": 4,
     "activeLocationCount": 2
   },
   {
@@ -1157,7 +1157,7 @@
     "providerTypeAr": "هيئة أطباء",
     "providerTypeEn": "Physician Clinic",
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-15-349",
@@ -1207,7 +1207,7 @@
     "providerTypeAr": "مراكز الأسنان",
     "providerTypeEn": "Dental Center",
     "locationCount": 5,
-    "activeLocationCount": 5
+    "activeLocationCount": 4
   },
   {
     "id": "org:15-24-113",
@@ -1287,7 +1287,7 @@
     "providerTypeAr": "مراكز الأسنان",
     "providerTypeEn": "Dental Center",
     "locationCount": 3,
-    "activeLocationCount": 3
+    "activeLocationCount": 2
   },
   {
     "id": "org:15-15-78",
@@ -1357,7 +1357,7 @@
     "providerTypeAr": "مراكز الأسنان",
     "providerTypeEn": null,
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:306acb22b76a6e3e",
@@ -1367,7 +1367,7 @@
     "providerTypeAr": "Outpatient services",
     "providerTypeEn": null,
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-15-191",
@@ -1702,12 +1702,12 @@
   {
     "id": "org:15-11-657",
     "providerKey": "15-11-657",
-    "nameAr": "صيدليات د. إسلام فتحي (طما)",
+    "nameAr": "صيدليات إسلام فتحى -الصفا2",
     "nameEn": "Dr. Islam Fathy Pharmacy . Sohag - HO",
     "providerTypeAr": "صيدليات",
     "providerTypeEn": "Pharmacy",
-    "locationCount": 22,
-    "activeLocationCount": 22
+    "locationCount": 23,
+    "activeLocationCount": 23
   },
   {
     "id": "org:15-12-7",
@@ -1716,18 +1716,18 @@
     "nameEn": "Al Borg Lab.cairo - HO",
     "providerTypeAr": "معامل التحاليل",
     "providerTypeEn": "Laboratory",
-    "locationCount": 186,
-    "activeLocationCount": 186
+    "locationCount": 188,
+    "activeLocationCount": 187
   },
   {
     "id": "org:15-12-4",
     "providerKey": "15-12-4",
-    "nameAr": "معامل المختبر ( مؤمنة كامل ) ( الزرقا )",
+    "nameAr": "معامل المختبر",
     "nameEn": "Al Mokhtabar Lab.cairo - HO",
     "providerTypeAr": "معامل التحاليل",
     "providerTypeEn": "Laboratory",
-    "locationCount": 226,
-    "activeLocationCount": 226
+    "locationCount": 230,
+    "activeLocationCount": 230
   },
   {
     "id": "org:15-12-5",
@@ -1736,8 +1736,8 @@
     "nameEn": "Alfa Laboratories.Cairo - HO",
     "providerTypeAr": "معامل التحاليل",
     "providerTypeEn": "Laboratory",
-    "locationCount": 215,
-    "activeLocationCount": 215
+    "locationCount": 225,
+    "activeLocationCount": 225
   },
   {
     "id": "org:15-18-171",
@@ -1817,7 +1817,7 @@
     "providerTypeAr": "صيدليات",
     "providerTypeEn": "Pharmacy",
     "locationCount": 78,
-    "activeLocationCount": 78
+    "activeLocationCount": 77
   },
   {
     "id": "org:15-11-692",
@@ -2663,10 +2663,10 @@
     "id": "org:15-11-635",
     "providerKey": "15-11-635",
     "nameAr": "صيدلية مستشفى العربي",
-    "nameEn": "El Araby Hospital _ Shobra. Cairo - HO",
+    "nameEn": "El Araby Hospital Pharmacy.Menofia - HO",
     "providerTypeAr": "صيدليات",
     "providerTypeEn": "Pharmacy",
-    "locationCount": 6,
+    "locationCount": 7,
     "activeLocationCount": 6
   },
   {
@@ -2834,10 +2834,10 @@
     "providerKey": "15-1-563",
     "nameAr": "مستشفى الصفا المهندسين - شركة الصفا للخدمات الطبية",
     "nameEn": "El Safa Company For Medical Services. Giza - HO",
-    "providerTypeAr": "مستشفيات",
-    "providerTypeEn": "Hospital",
-    "locationCount": 2,
-    "activeLocationCount": 2
+    "providerTypeAr": "مجمع عيادات",
+    "providerTypeEn": "Polyclinic - Group of Doctors with lab, X-ray, treatment facilities",
+    "locationCount": 8,
+    "activeLocationCount": 8
   },
   {
     "id": "org:15-15-221",
@@ -2867,7 +2867,7 @@
     "providerTypeAr": "مجمع عيادات",
     "providerTypeEn": "Polyclinic - Group of Doctors with lab, X-ray, treatment facilities",
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-1-131",
@@ -2907,7 +2907,7 @@
     "providerTypeAr": "مجمع عيادات",
     "providerTypeEn": "Polyclinic - Group of Doctors with lab, X-ray, treatment facilities",
     "locationCount": 2,
-    "activeLocationCount": 2
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-1-417",
@@ -2946,7 +2946,7 @@
     "nameEn": "Dr. Sherif Abdel Raaof Ahmed ( Atfalna ). Giza - HO",
     "providerTypeAr": "هيئة أطباء",
     "providerTypeEn": "Physician Clinic",
-    "locationCount": 4,
+    "locationCount": 8,
     "activeLocationCount": 4
   },
   {
@@ -3817,7 +3817,7 @@
     "providerTypeAr": "مستشفيات",
     "providerTypeEn": "Hospital",
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-1-478",
@@ -3956,8 +3956,8 @@
     "nameEn": "Al Masa Dental Clinic ( Dr. Amr Ahmed El Housseiny ). Giza - HO",
     "providerTypeAr": "مراكز الأسنان",
     "providerTypeEn": "Dental Center",
-    "locationCount": 2,
-    "activeLocationCount": 2
+    "locationCount": 3,
+    "activeLocationCount": 3
   },
   {
     "id": "org:15-5-24",
@@ -4107,7 +4107,7 @@
     "providerTypeAr": "مراكز طبية متخصصة",
     "providerTypeEn": "Hospital",
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-1-622",
@@ -4196,8 +4196,8 @@
     "nameEn": "Alfa Scan Center.Giza - HO",
     "providerTypeAr": "مراكز الأشعة",
     "providerTypeEn": "Radiology Center",
-    "locationCount": 6,
-    "activeLocationCount": 6
+    "locationCount": 15,
+    "activeLocationCount": 15
   },
   {
     "id": "org:15-14-80",
@@ -4326,8 +4326,8 @@
     "nameEn": "Al Shams Laboratories.Cairo - HO",
     "providerTypeAr": "معامل التحاليل",
     "providerTypeEn": "Laboratory",
-    "locationCount": 59,
-    "activeLocationCount": 59
+    "locationCount": 60,
+    "activeLocationCount": 60
   },
   {
     "id": "org:15-14-61",
@@ -4577,7 +4577,7 @@
     "providerTypeAr": "مراكز طبية متخصصة",
     "providerTypeEn": "Hospital",
     "locationCount": 2,
-    "activeLocationCount": 2
+    "activeLocationCount": 1
   },
   {
     "id": "org:15-6-49",
@@ -4776,7 +4776,7 @@
     "nameEn": "Roeya Center For Gastroenterology ,Hepatolog& Endoscopy. Cairo - HO",
     "providerTypeAr": "مراكز طبية متخصصة",
     "providerTypeEn": "Hospital",
-    "locationCount": 3,
+    "locationCount": 6,
     "activeLocationCount": 3
   },
   {
@@ -4837,7 +4837,7 @@
     "providerTypeAr": "مراكز الأسنان",
     "providerTypeEn": "Dental Center",
     "locationCount": 2,
-    "activeLocationCount": 2
+    "activeLocationCount": 1
   },
   {
     "id": "org:15-15-185",
@@ -4946,8 +4946,8 @@
     "nameEn": "Aliaa Dental Center ( Dr. Ahmed Abo El Wafa ). Giza - HO",
     "providerTypeAr": "مراكز الأسنان",
     "providerTypeEn": "Dental Center",
-    "locationCount": 1,
-    "activeLocationCount": 1
+    "locationCount": 2,
+    "activeLocationCount": 2
   },
   {
     "id": "org:15-4-94",
@@ -5036,8 +5036,8 @@
     "nameEn": "El Ezaby Chain Pharmacies.Cairo - HO",
     "providerTypeAr": "صيدليات",
     "providerTypeEn": "Pharmacy",
-    "locationCount": 296,
-    "activeLocationCount": 296
+    "locationCount": 352,
+    "activeLocationCount": 352
   },
   {
     "id": "org:15-15-212",
@@ -5076,8 +5076,8 @@
     "nameEn": "Louran Dental Center ( Dr. Amr Saad Mohamed ) . Alex - HO",
     "providerTypeAr": "مراكز الأسنان",
     "providerTypeEn": "Dental Center",
-    "locationCount": 5,
-    "activeLocationCount": 5
+    "locationCount": 6,
+    "activeLocationCount": 6
   },
   {
     "id": "org:15-1-646",
@@ -5266,7 +5266,7 @@
     "nameEn": "El Ekbal Hospital. Alex - HO",
     "providerTypeAr": "مستشفيات",
     "providerTypeEn": "Hospital",
-    "locationCount": 1,
+    "locationCount": 2,
     "activeLocationCount": 1
   },
   {
@@ -5486,7 +5486,7 @@
     "nameEn": "Al Dorrah Specialized Hospital. Gharbia - HO",
     "providerTypeAr": "مستشفيات",
     "providerTypeEn": "Hospital",
-    "locationCount": 1,
+    "locationCount": 2,
     "activeLocationCount": 1
   },
   {
@@ -5696,7 +5696,7 @@
     "nameEn": "Saudi German Hospital. Cairo - HO",
     "providerTypeAr": "مستشفيات",
     "providerTypeEn": "Hospital",
-    "locationCount": 1,
+    "locationCount": 2,
     "activeLocationCount": 1
   },
   {
@@ -5883,7 +5883,7 @@
     "id": "org:15-1-22",
     "providerKey": "15-1-22",
     "nameAr": "مستشفى العيون الدولي ( مركز عيون الأطفال )",
-    "nameEn": "Al' Oyoun Al Dawli Hospital. Cairo - HO",
+    "nameEn": "Al Oyoun Al Dawli Hospital. Cairo – HO",
     "providerTypeAr": "مستشفيات",
     "providerTypeEn": "Hospital",
     "locationCount": 6,
@@ -6087,7 +6087,7 @@
     "providerTypeAr": "مستشفيات",
     "providerTypeEn": "Hospital",
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-1-639",
@@ -6117,7 +6117,7 @@
     "providerTypeAr": "مستشفيات",
     "providerTypeEn": "Hospital",
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-1-514",
@@ -6607,7 +6607,7 @@
     "providerTypeAr": "مستشفيات",
     "providerTypeEn": "Hospital",
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:1dcc902750aa711f",
@@ -6617,7 +6617,7 @@
     "providerTypeAr": "مستشفيات",
     "providerTypeEn": null,
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:d90c064e0f8cdcc1",
@@ -6627,7 +6627,7 @@
     "providerTypeAr": "Inpatient / ER / Outpatient services",
     "providerTypeEn": null,
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-1-334",
@@ -6687,7 +6687,7 @@
     "providerTypeAr": "مستشفيات",
     "providerTypeEn": "Hospital",
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-1-158",
@@ -7226,7 +7226,7 @@
     "nameEn": "The Central Wadi El Natron Hospital. Behira - HO",
     "providerTypeAr": "مستشفيات",
     "providerTypeEn": "Hospital",
-    "locationCount": 1,
+    "locationCount": 2,
     "activeLocationCount": 1
   },
   {
@@ -7297,7 +7297,7 @@
     "providerTypeAr": "معامل التحاليل",
     "providerTypeEn": null,
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:512738161b2a7913",
@@ -7307,7 +7307,7 @@
     "providerTypeAr": "Outpatient services",
     "providerTypeEn": null,
     "locationCount": 2,
-    "activeLocationCount": 2
+    "activeLocationCount": 0
   },
   {
     "id": "org:80a00465310f34af",
@@ -7317,7 +7317,7 @@
     "providerTypeAr": "معامل التحاليل",
     "providerTypeEn": null,
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-14-114",
@@ -7367,7 +7367,7 @@
     "providerTypeAr": "معامل التحاليل",
     "providerTypeEn": null,
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-12-105",
@@ -7396,7 +7396,7 @@
     "nameEn": "Metra Lab. Portsaid - HO",
     "providerTypeAr": "معامل التحاليل",
     "providerTypeEn": "Laboratory",
-    "locationCount": 29,
+    "locationCount": 31,
     "activeLocationCount": 29
   },
   {
@@ -7436,7 +7436,7 @@
     "nameEn": "Cairo Lab.Giza - HO",
     "providerTypeAr": "معامل التحاليل",
     "providerTypeEn": "Laboratory",
-    "locationCount": 34,
+    "locationCount": 68,
     "activeLocationCount": 34
   },
   {
@@ -7496,7 +7496,7 @@
     "nameEn": "Gama Care Lab Medical Services_Bani Swif - HO",
     "providerTypeAr": "معامل التحاليل",
     "providerTypeEn": "Laboratory",
-    "locationCount": 6,
+    "locationCount": 12,
     "activeLocationCount": 6
   },
   {
@@ -7777,7 +7777,7 @@
     "providerTypeAr": "مستشفيات",
     "providerTypeEn": "Hospital",
     "locationCount": 4,
-    "activeLocationCount": 4
+    "activeLocationCount": 3
   },
   {
     "id": "org:15-15-375",
@@ -7874,10 +7874,10 @@
     "providerKey": "15-18-134",
     "nameAr": "عيادات ارقي التخصصية",
     "nameEn": "Arqa Specialized Clinic-Giza - HO",
-    "providerTypeAr": "مجمع عيادات",
-    "providerTypeEn": "Polyclinic - Group of Doctors with lab, X-ray, treatment facilities",
-    "locationCount": 1,
-    "activeLocationCount": 1
+    "providerTypeAr": "مراكز الأسنان",
+    "providerTypeEn": "Dental Center",
+    "locationCount": 3,
+    "activeLocationCount": 3
   },
   {
     "id": "org:15-4-128",
@@ -8087,7 +8087,7 @@
     "providerTypeAr": "مستشفيات",
     "providerTypeEn": "Hospital",
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-1-781",
@@ -8237,7 +8237,7 @@
     "providerTypeAr": "هيئة أطباء",
     "providerTypeEn": "Physician Clinic",
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-24-1337",
@@ -8716,8 +8716,8 @@
     "nameEn": "Orange Pharmacies - HO",
     "providerTypeAr": "صيدليات",
     "providerTypeEn": "Pharmacy",
-    "locationCount": 206,
-    "activeLocationCount": 206
+    "locationCount": 240,
+    "activeLocationCount": 232
   },
   {
     "id": "org:15-4-249",
@@ -8762,12 +8762,12 @@
   {
     "id": "org:15-11-1860",
     "providerKey": "15-11-1860",
-    "nameAr": "صيدليات لوتاس-السادس من اكتوبر",
+    "nameAr": "صيدلية لوتس",
     "nameEn": "Lotus Pharmacies-Cairo - HO",
     "providerTypeAr": "صيدليات",
     "providerTypeEn": "Pharmacy",
-    "locationCount": 15,
-    "activeLocationCount": 15
+    "locationCount": 19,
+    "activeLocationCount": 19
   },
   {
     "id": "org:15-15-529",
@@ -9067,7 +9067,7 @@
     "providerTypeAr": "صيدليات",
     "providerTypeEn": "Pharmacy",
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-11-516",
@@ -9107,7 +9107,7 @@
     "providerTypeAr": "مجمع عيادات",
     "providerTypeEn": "Polyclinic - Group of Doctors with lab, X-ray, treatment facilities",
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-14-14",
@@ -9156,7 +9156,7 @@
     "nameEn": "Smart Dental Center (Dr. Remon Shenoda Agaiby ) . Cairo - HO",
     "providerTypeAr": "مراكز الأسنان",
     "providerTypeEn": "Dental Center",
-    "locationCount": 1,
+    "locationCount": 2,
     "activeLocationCount": 1
   },
   {
@@ -9476,7 +9476,7 @@
     "nameEn": "Medi Scan Center ( Dr. Mohamed El Sayed ). Sharkia - HO",
     "providerTypeAr": "مراكز الأشعة",
     "providerTypeEn": "Radiology Center",
-    "locationCount": 1,
+    "locationCount": 2,
     "activeLocationCount": 1
   },
   {
@@ -9667,7 +9667,7 @@
     "providerTypeAr": "مراكز الأسنان",
     "providerTypeEn": "Dental Center",
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-24-633",
@@ -9766,7 +9766,7 @@
     "nameEn": "Dr. Tarek Elmorsi Elmorsi Abo Ali. Behira - HO",
     "providerTypeAr": "هيئة أطباء",
     "providerTypeEn": "Physician Clinic",
-    "locationCount": 1,
+    "locationCount": 2,
     "activeLocationCount": 1
   },
   {
@@ -9836,7 +9836,7 @@
     "nameEn": "Dr. Mohsen Hussin Mostafa. Cairo - HO",
     "providerTypeAr": "هيئة أطباء",
     "providerTypeEn": "Physician Clinic",
-    "locationCount": 1,
+    "locationCount": 2,
     "activeLocationCount": 1
   },
   {
@@ -10233,11 +10233,11 @@
     "id": "org:15-4-254",
     "providerKey": "15-4-254",
     "nameAr": "مركز البرج سكان",
-    "nameEn": "Borg for radiology-Sharkia - HO",
+    "nameEn": "Al Borg Scan Center.Giza - HO",
     "providerTypeAr": "مراكز الأشعة",
     "providerTypeEn": "Radiology Center",
-    "locationCount": 1,
-    "activeLocationCount": 1
+    "locationCount": 2,
+    "activeLocationCount": 2
   },
   {
     "id": "org:15-15-535",
@@ -10487,7 +10487,7 @@
     "providerTypeAr": "مستشفيات",
     "providerTypeEn": "Hospital",
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-24-1535",
@@ -10627,7 +10627,7 @@
     "providerTypeAr": "مراكز الأسنان",
     "providerTypeEn": "Dental Center",
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-1-988",
@@ -10797,7 +10797,7 @@
     "providerTypeAr": "مراكز البصريات",
     "providerTypeEn": "Optometry - Vision Service Center",
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-4-259",
@@ -11027,7 +11027,7 @@
     "providerTypeAr": "صيدليات",
     "providerTypeEn": null,
     "locationCount": 2,
-    "activeLocationCount": 2
+    "activeLocationCount": 0
   },
   {
     "id": "org:538986a25a7fe24e",
@@ -11037,7 +11037,7 @@
     "providerTypeAr": "Dakhlia",
     "providerTypeEn": null,
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-11-1920",
@@ -11087,7 +11087,7 @@
     "providerTypeAr": "مستشفيات",
     "providerTypeEn": "Hospital",
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-11-1925",
@@ -11557,7 +11557,7 @@
     "providerTypeAr": "صيدليات",
     "providerTypeEn": "Pharmacy",
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-1-1021",
@@ -11762,12 +11762,12 @@
   {
     "id": "org:15-14-8",
     "providerKey": "15-14-8",
-    "nameAr": "مغربي للبصريات(Doctor M Stores)-دكتور إم جزيرة العرب",
+    "nameAr": "مغربي للبصريات(Doctor M Stores)-جولف سيتي",
     "nameEn": "Magrabi Optical Center - HO",
     "providerTypeAr": "مراكز البصريات",
     "providerTypeEn": "Optometry - Vision Service Center",
-    "locationCount": 29,
-    "activeLocationCount": 29
+    "locationCount": 30,
+    "activeLocationCount": 30
   },
   {
     "id": "org:15-11-1946",
@@ -11866,8 +11866,8 @@
     "nameEn": "Alfa Care Center For Physical Therapy - Alfa International. Cairo - HO",
     "providerTypeAr": "مراكز علاج طبيعي",
     "providerTypeEn": "Physiotherapy",
-    "locationCount": 34,
-    "activeLocationCount": 34
+    "locationCount": 38,
+    "activeLocationCount": 32
   },
   {
     "id": "org:15-1-365",
@@ -11906,8 +11906,8 @@
     "nameEn": "Balbaa Pharmacies-Alexandria - HO",
     "providerTypeAr": "صيدليات",
     "providerTypeEn": "Pharmacy",
-    "locationCount": 35,
-    "activeLocationCount": 35
+    "locationCount": 37,
+    "activeLocationCount": 37
   },
   {
     "id": "org:15-1-1028",
@@ -11927,7 +11927,7 @@
     "providerTypeAr": "مجمع عيادات",
     "providerTypeEn": "Polyclinic - Group of Doctors with lab, X-ray, treatment facilities",
     "locationCount": 4,
-    "activeLocationCount": 4
+    "activeLocationCount": 3
   },
   {
     "id": "org:15-15-12",
@@ -12147,7 +12147,7 @@
     "providerTypeAr": "هيئة أطباء",
     "providerTypeEn": "Physician Clinic",
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-11-1951",
@@ -12177,7 +12177,7 @@
     "providerTypeAr": "معامل التحاليل",
     "providerTypeEn": "Laboratory",
     "locationCount": 5,
-    "activeLocationCount": 5
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-1-1032",
@@ -12397,7 +12397,7 @@
     "providerTypeAr": "مراكز البصريات",
     "providerTypeEn": null,
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-1-1037",
@@ -12827,7 +12827,7 @@
     "providerTypeAr": "صيدليات",
     "providerTypeEn": "Pharmacy",
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-11-2051",
@@ -12847,7 +12847,7 @@
     "providerTypeAr": "مستشفيات",
     "providerTypeEn": "Hospital",
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-24-1569",
@@ -13147,7 +13147,7 @@
     "providerTypeAr": "مستشفيات",
     "providerTypeEn": "Hospital",
     "locationCount": 12,
-    "activeLocationCount": 12
+    "activeLocationCount": 11
   },
   {
     "id": "org:15-11-2326",
@@ -13277,7 +13277,7 @@
     "providerTypeAr": "مجمع عيادات",
     "providerTypeEn": "Polyclinic - Group of Doctors with lab, X-ray, treatment facilities",
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-1-1090",
@@ -13337,7 +13337,7 @@
     "providerTypeAr": "مستشفيات",
     "providerTypeEn": "Hospital",
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-24-1598",
@@ -13446,8 +13446,8 @@
     "nameEn": "Villa Dental Center. Cairo - HO",
     "providerTypeAr": "مراكز الأسنان",
     "providerTypeEn": "Dental Center",
-    "locationCount": 13,
-    "activeLocationCount": 13
+    "locationCount": 14,
+    "activeLocationCount": 14
   },
   {
     "id": "org:9789eb4fe5d6f10f",
@@ -13457,7 +13457,7 @@
     "providerTypeAr": "مراكز الأسنان",
     "providerTypeEn": null,
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:49be9c1fc9f8e0b6",
@@ -13467,7 +13467,7 @@
     "providerTypeAr": "Giza",
     "providerTypeEn": null,
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-11-2334",
@@ -13477,7 +13477,7 @@
     "providerTypeAr": "صيدليات",
     "providerTypeEn": "Pharmacy",
     "locationCount": 10,
-    "activeLocationCount": 10
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-11-2333",
@@ -13486,8 +13486,8 @@
     "nameEn": "Yodawy Med-Woods Pharmacy-Giza-HO",
     "providerTypeAr": "صيدليات",
     "providerTypeEn": "Pharmacy",
-    "locationCount": 5,
-    "activeLocationCount": 5
+    "locationCount": 8,
+    "activeLocationCount": 8
   },
   {
     "id": "org:15-11-2335",
@@ -13685,9 +13685,9 @@
     "nameAr": "مركز أسنان رونق ( د محمد أحمد طلعت )",
     "nameEn": "Rawnaq Dental Center ( Dr Mohamed Ahmed Talaat )-Sohag-HO",
     "providerTypeAr": "مراكز الأسنان",
-    "providerTypeEn": "Hospital",
-    "locationCount": 1,
-    "activeLocationCount": 1
+    "providerTypeEn": "Dental Center",
+    "locationCount": 2,
+    "activeLocationCount": 2
   },
   {
     "id": "org:15-1-1108",
@@ -13747,7 +13747,7 @@
     "providerTypeAr": "مستشفيات",
     "providerTypeEn": "Hospital",
     "locationCount": 2,
-    "activeLocationCount": 2
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-15-655",
@@ -13826,8 +13826,8 @@
     "nameEn": "Russian Pharmacy Dr.Ahmed Mahmoud-South Sinai-HO",
     "providerTypeAr": "صيدليات",
     "providerTypeEn": "Pharmacy",
-    "locationCount": 1,
-    "activeLocationCount": 1
+    "locationCount": 13,
+    "activeLocationCount": 13
   },
   {
     "id": "org:15-1-1112",
@@ -13867,7 +13867,7 @@
     "providerTypeAr": "مستشفيات",
     "providerTypeEn": "Hospital",
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-15-659",
@@ -13886,8 +13886,8 @@
     "nameEn": "EG Physio For Physiotherapy and Rehabilitation-Cairo-HO",
     "providerTypeAr": "مراكز علاج طبيعي",
     "providerTypeEn": "Physiotherapy",
-    "locationCount": 1,
-    "activeLocationCount": 1
+    "locationCount": 5,
+    "activeLocationCount": 5
   },
   {
     "id": "org:170523",
@@ -14086,8 +14086,8 @@
     "nameEn": "Nour Pharmacies-Alex-HO",
     "providerTypeAr": "صيدليات",
     "providerTypeEn": "Pharmacy",
-    "locationCount": 35,
-    "activeLocationCount": 35
+    "locationCount": 77,
+    "activeLocationCount": 77
   },
   {
     "id": "org:176002",
@@ -14297,7 +14297,7 @@
     "providerTypeAr": "Sharkia",
     "providerTypeEn": null,
     "locationCount": 1,
-    "activeLocationCount": 1
+    "activeLocationCount": 0
   },
   {
     "id": "org:15-18-132",
@@ -14386,8 +14386,8 @@
     "nameEn": "Hayah Dent Clinic-Gharbia-HO",
     "providerTypeAr": "مراكز الأسنان",
     "providerTypeEn": "Dental Center",
-    "locationCount": 1,
-    "activeLocationCount": 1
+    "locationCount": 3,
+    "activeLocationCount": 3
   },
   {
     "id": "org:15-1-1120",
@@ -14406,8 +14406,8 @@
     "nameEn": "JM Clinic -Cairo-HO",
     "providerTypeAr": "مجمع عيادات",
     "providerTypeEn": "Polyclinic - Group of Doctors with lab, X-ray, treatment facilities",
-    "locationCount": 1,
-    "activeLocationCount": 1
+    "locationCount": 4,
+    "activeLocationCount": 4
   },
   {
     "id": "org:259642",
@@ -14447,7 +14447,7 @@
     "providerTypeAr": "صيدليات",
     "providerTypeEn": "Pharmacy",
     "locationCount": 35,
-    "activeLocationCount": 35
+    "activeLocationCount": 0
   },
   {
     "id": "org:260373",
@@ -14476,6 +14476,1086 @@
     "nameEn": "Dr. Nancy Medhat Adly_Assiut- HO",
     "providerTypeAr": "مراكز الأسنان",
     "providerTypeEn": "Dental Center",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-4-80",
+    "providerKey": "15-4-80",
+    "nameAr": "العبور سكان",
+    "nameEn": "El Obour Scan Center. Qualubia - HO",
+    "providerTypeAr": "مراكز الأشعة",
+    "providerTypeEn": "Radiology Center",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-24-882",
+    "providerKey": "15-24-882",
+    "nameAr": "راحة كلينيك لعلاج آلام العمود الفقري والمفاصل والأعصاب - د. عمرو رأفت",
+    "nameEn": "Raha Clinic ( Dr. Amr Raafat Refaat).Giza - HO",
+    "providerTypeAr": "مراكز طبية متخصصة",
+    "providerTypeEn": "Physician Clinic",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-11-655",
+    "providerKey": "15-11-655",
+    "nameAr": "صيدلية د. عبد الفتاح طه",
+    "nameEn": "Dr . Abdel Fattah Taha Pharmacy . Alex - HO",
+    "providerTypeAr": "صيدليات",
+    "providerTypeEn": "Pharmacy",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-1-366",
+    "providerKey": "15-1-366",
+    "nameAr": "مستشفى د. عبد القادر فهمي",
+    "nameEn": "Dr. Abdel Qadr Fahmy Hospital. Cairo - HO",
+    "providerTypeAr": "مستشفيات",
+    "providerTypeEn": "Hospital",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-11-1937",
+    "providerKey": "15-11-1937",
+    "nameAr": "صيدلية ابنى بيتك ( د نورهان )",
+    "nameEn": "Ebny Beitak Pharmacy ( Dr Norhan Hassan )-Sharkia-HO",
+    "providerTypeAr": "صيدليات",
+    "providerTypeEn": "Pharmacy",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:260738",
+    "providerKey": "260738",
+    "nameAr": "صبدلية دكتورة اكرام",
+    "nameEn": "Dr Ikram Pharmacy-Red Sea-HO",
+    "providerTypeAr": "صيدليات",
+    "providerTypeEn": "Pharmacy",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:261104",
+    "providerKey": "261104",
+    "nameAr": "صيدلية نوح",
+    "nameEn": "Nouh Pharmacy-Red Sea-HO",
+    "providerTypeAr": "صيدليات",
+    "providerTypeEn": "Pharmacy",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-15-671",
+    "providerKey": "15-15-671",
+    "nameAr": "عيادات اركان للاسنان",
+    "nameEn": "Arkan Dental Care-Alex-HO",
+    "providerTypeAr": "مراكز الأسنان",
+    "providerTypeEn": "Dental Center",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-15-672",
+    "providerKey": "15-15-672",
+    "nameAr": "دكتور عمر عبدالله محمود",
+    "nameEn": "Dr. Amr Abdallah Mahmoud -Aswan-HO",
+    "providerTypeAr": "مراكز الأسنان",
+    "providerTypeEn": "Dental Center",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-4-324",
+    "providerKey": "15-4-324",
+    "nameAr": "مركز طيبة سكان للاشعة",
+    "nameEn": "Tiba Scan Diagnostic Center-Aswan-HO",
+    "providerTypeAr": "مراكز الأشعة",
+    "providerTypeEn": "Radiology Center",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-24-1645",
+    "providerKey": "15-24-1645",
+    "nameAr": "دكتورعبدالباسط عبدالسلام",
+    "nameEn": "Dr.Abd El-Baset Abd El-Salam Clinic-Aswan-HO",
+    "providerTypeAr": "هيئة أطباء",
+    "providerTypeEn": "Physician Clinic",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-12-1453",
+    "providerKey": "15-12-1453",
+    "nameAr": "معمل مرسي علم للتحاليل الطبية الكيميائيه",
+    "nameEn": "Marsa Allam Lab For Medical Chemical Tests-Red Sea-HO",
+    "providerTypeAr": "معامل التحاليل",
+    "providerTypeEn": "Laboratory",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:17272",
+    "providerKey": "17272",
+    "nameAr": "مركز الإيمان للاشعة",
+    "nameEn": "Al Eman Scan Center. Domiett - HO",
+    "providerTypeAr": "مراكز الأشعة",
+    "providerTypeEn": "Radiology Center",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-18-250",
+    "providerKey": "15-18-250",
+    "nameAr": "عيادات دار الطبيب التخصصى",
+    "nameEn": "Dar El Tabib Specialized Clinics-Qena -HO",
+    "providerTypeAr": "مجمع عيادات",
+    "providerTypeEn": "Polyclinic - Group of Doctors with lab, X-ray, treatment facilities",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-15-673",
+    "providerKey": "15-15-673",
+    "nameAr": "دكتور محمد الصالح عبد الراضى",
+    "nameEn": "Dr. Mohamed Al Saleh Abdel Rady -Assuit-HO",
+    "providerTypeAr": "مراكز الأسنان",
+    "providerTypeEn": "Dental Center",
+    "locationCount": 2,
+    "activeLocationCount": 2
+  },
+  {
+    "id": "org:261468",
+    "providerKey": "261468",
+    "nameAr": "صيدلية مستشفي الصفوة",
+    "nameEn": "El Safwa Hospital Pharmacy-Giza-HO",
+    "providerTypeAr": "صيدليات",
+    "providerTypeEn": "Pharmacy",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-5-124",
+    "providerKey": "15-5-124",
+    "nameAr": "الجمهورية للأشعة و التحاليل الطبية",
+    "nameEn": "El Gomhoria Lab&Radiology Center-Qena-HO",
+    "providerTypeAr": "مراكز الأشعة والتحاليل",
+    "providerTypeEn": "Diagnostic Center",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-4-326",
+    "providerKey": "15-4-326",
+    "nameAr": "الأمل للأشعة المقطعية",
+    "nameEn": "Al Amal Radiology Center-Assuit-HO",
+    "providerTypeAr": "مراكز الأشعة",
+    "providerTypeEn": "Radiology Center",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:261834",
+    "providerKey": "261834",
+    "nameAr": "صيدلية دكتورة رغدة خالد",
+    "nameEn": "Dr.Raghda Khalid Pharmacy-Qaliobia-HO",
+    "providerTypeAr": "صيدليات",
+    "providerTypeEn": "Pharmacy",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:262199",
+    "providerKey": "262199",
+    "nameAr": "صيدلية الداخلية",
+    "nameEn": "El Dakhlia Pharmacy-Cairo-HO",
+    "providerTypeAr": "صيدليات",
+    "providerTypeEn": "Pharmacy",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-1-1124",
+    "providerKey": "15-1-1124",
+    "nameAr": "مستشفي السلمي التخصصي",
+    "nameEn": "Al-Salma Specialized Hospital-Giza-HO",
+    "providerTypeAr": "مستشفيات",
+    "providerTypeEn": "Hospital",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-15-676",
+    "providerKey": "15-15-676",
+    "nameAr": "تاج ميديكال كير لإدارة الطبية",
+    "nameEn": "Tag Medical Care For Medical Management -Alexanderia-HO",
+    "providerTypeAr": "مراكز الأسنان",
+    "providerTypeEn": "Dental Center",
+    "locationCount": 3,
+    "activeLocationCount": 3
+  },
+  {
+    "id": "org:15-24-1649",
+    "providerKey": "15-24-1649",
+    "nameAr": "دكتور عمرو بكرى عبدالجليل محمد",
+    "nameEn": "Dr.Amr Bakrey Abdeljaleel Mohamed-Aswan-HO",
+    "providerTypeAr": "هيئة أطباء",
+    "providerTypeEn": "Physician Clinic",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:266217",
+    "providerKey": "266217",
+    "nameAr": "صيدلية د. محمد أحمد ابراهيم عتيق",
+    "nameEn": "Dr.Mohamed Ahmed Ibrahim Ateek Pharmacy-Qena-HO",
+    "providerTypeAr": "صيدليات",
+    "providerTypeEn": "Pharmacy",
+    "locationCount": 2,
+    "activeLocationCount": 2
+  },
+  {
+    "id": "org:15-1-767",
+    "providerKey": "15-1-767",
+    "nameAr": "مستشفى ايليت",
+    "nameEn": "Elite Hospital-Alexandria - HO",
+    "providerTypeAr": "مستشفيات",
+    "providerTypeEn": "Hospital",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:289958",
+    "providerKey": "289958",
+    "nameAr": "صيدلية د.شيماء محمود حامد محمود",
+    "nameEn": "Dr Shimaa Mahmoud Hamid Mahmoud Pharmacy-Qena-HO",
+    "providerTypeAr": "صيدليات",
+    "providerTypeEn": "Pharmacy",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-24-1611",
+    "providerKey": "15-24-1611",
+    "nameAr": "د. فريد فايز منكاريوس",
+    "nameEn": "Dr.Farid Fayez Mamkarios-Menia-HO",
+    "providerTypeAr": "هيئة أطباء",
+    "providerTypeEn": "Physician Clinic",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-15-681",
+    "providerKey": "15-15-681",
+    "nameAr": "د احمد عبدالحميد منازع",
+    "nameEn": "Dr.Ahmed Abdelhamid Menaza Abdelhamid-Qena-HO",
+    "providerTypeAr": "مراكز الأسنان",
+    "providerTypeEn": "Dental Center",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-18-254",
+    "providerKey": "15-18-254",
+    "nameAr": "تاون كلينيك لإدارة و تشغيل العيادات التخصصية",
+    "nameEn": "Town clinic for managing&operating polyclinics-Giza-HO",
+    "providerTypeAr": "مجمع عيادات",
+    "providerTypeEn": "Polyclinic - Group of Doctors with lab, X-ray, treatment facilities",
+    "locationCount": 3,
+    "activeLocationCount": 3
+  },
+  {
+    "id": "org:15-15-682",
+    "providerKey": "15-15-682",
+    "nameAr": "د احمد محمد سعد",
+    "nameEn": "Dr.Ahmed Mohamed Saad-Qena-HO",
+    "providerTypeAr": "مراكز الأسنان",
+    "providerTypeEn": "Dental Center",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-6-304",
+    "providerKey": "15-6-304",
+    "nameAr": "(مركز الذهبى للعلاج الطبيعى(د اسامة محمد راشاد",
+    "nameEn": "El Zahaby Physiotherapy Center(Dr.Osama Mohamed Mohamed Rashad)-Cairo-HO",
+    "providerTypeAr": "مراكز علاج طبيعي",
+    "providerTypeEn": "Physiotherapy",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-6-305",
+    "providerKey": "15-6-305",
+    "nameAr": "مركز بينلس للعلاج الطبيعى و التأهيل",
+    "nameEn": "Painless Physiotherapy and Rehabilitation center-Cairo-HO",
+    "providerTypeAr": "مراكز علاج طبيعي",
+    "providerTypeEn": "Physiotherapy",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-15-683",
+    "providerKey": "15-15-683",
+    "nameAr": "عيادة اسنان إيترنا",
+    "nameEn": "Eterna Dental Clinic-Giza-HO",
+    "providerTypeAr": "مراكز الأسنان",
+    "providerTypeEn": "Dental Center",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-12-1460",
+    "providerKey": "15-12-1460",
+    "nameAr": "معمل دار ابن سينا",
+    "nameEn": "Dar Ibn Sina Laboratories-Qena-HO",
+    "providerTypeAr": "معامل التحاليل",
+    "providerTypeEn": "Laboratory",
+    "locationCount": 8,
+    "activeLocationCount": 8
+  },
+  {
+    "id": "org:15-18-257",
+    "providerKey": "15-18-257",
+    "nameAr": "دار الطبيب للخدمات الطبية و العلاجية",
+    "nameEn": "Dar Al Tabeeb Service-Menia-HO",
+    "providerTypeAr": "مجمع عيادات",
+    "providerTypeEn": "Polyclinic - Group of Doctors with lab, X-ray, treatment facilities",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-18-258",
+    "providerKey": "15-18-258",
+    "nameAr": "عيادات إيف التخصصية",
+    "nameEn": "Eve Specialized Clinics-Giza-HO",
+    "providerTypeAr": "مجمع عيادات",
+    "providerTypeEn": "Polyclinic - Group of Doctors with lab, X-ray, treatment facilities",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-6-306",
+    "providerKey": "15-6-306",
+    "nameAr": "مركز نبراس للعلاج الطبيعى و التأهيل",
+    "nameEn": "Nebras Centers for Physiotherapy &Rehabilitation-Cairo-HO",
+    "providerTypeAr": "مراكز علاج طبيعي",
+    "providerTypeEn": "Physiotherapy",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-1-1125",
+    "providerKey": "15-1-1125",
+    "nameAr": "مستشفى الصفا التخصصى (جمال المشد للخدمات الطبية)",
+    "nameEn": "El Safa Specialized Hospital(Jamal El Mashad For Medical Services)-Beheira-HO",
+    "providerTypeAr": "مستشفيات",
+    "providerTypeEn": "Hospital",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-15-684",
+    "providerKey": "15-15-684",
+    "nameAr": "سمايل دينتال كير",
+    "nameEn": "Smile Dental Care-Alexanderia-HO",
+    "providerTypeAr": "مراكز الأسنان",
+    "providerTypeEn": "Dental Center",
+    "locationCount": 2,
+    "activeLocationCount": 2
+  },
+  {
+    "id": "org:15-15-686",
+    "providerKey": "15-15-686",
+    "nameAr": "المغربى دينتال سينتر",
+    "nameEn": "El Maghraby Dental Center-Cairo-HO",
+    "providerTypeAr": "مراكز الأسنان",
+    "providerTypeEn": "Dental Center",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-1-1126",
+    "providerKey": "15-1-1126",
+    "nameAr": "مستشفى الجزيرة الدولى",
+    "nameEn": "Al Jazeera International Hospital El Sallab-Dakhlia-HO",
+    "providerTypeAr": "مستشفيات",
+    "providerTypeEn": "Hospital",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-18-259",
+    "providerKey": "15-18-259",
+    "nameAr": "عيادات العربى التخصصى",
+    "nameEn": "Al Araby Specialized clinics-salah Salem-Cairo-HO",
+    "providerTypeAr": "مجمع عيادات",
+    "providerTypeEn": "Polyclinic - Group of Doctors with lab, X-ray, treatment facilities",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-1-1128",
+    "providerKey": "15-1-1128",
+    "nameAr": "المستشفى الألمانى",
+    "nameEn": "German Hospital-Alexandria-HO",
+    "providerTypeAr": "مستشفيات",
+    "providerTypeEn": "Hospital",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-1-1129",
+    "providerKey": "15-1-1129",
+    "nameAr": "مستشفى المدينة للمرأه",
+    "nameEn": "Madina Women`s Hospital-Alexandria-HO",
+    "providerTypeAr": "مستشفيات",
+    "providerTypeEn": "Hospital",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:295801",
+    "providerKey": "295801",
+    "nameAr": "صيدلية د. رانيا كرم",
+    "nameEn": "DR.Rania Karam Pharmacy-Redsea-HO",
+    "providerTypeAr": "صيدليات",
+    "providerTypeEn": "Pharmacy",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:296166",
+    "providerKey": "296166",
+    "nameAr": "صيدلية د عبدالحمن عبدالمنعم",
+    "nameEn": "DR.Abdelrahman Abdelmonaem Pharmacy-Sharkia-HO",
+    "providerTypeAr": "صيدليات",
+    "providerTypeEn": "Pharmacy",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-15-688",
+    "providerKey": "15-15-688",
+    "nameAr": "وايت دينتال كلينيك",
+    "nameEn": "White Dental Clinic-Sharkia-HO",
+    "providerTypeAr": "مراكز الأسنان",
+    "providerTypeEn": "Dental Center",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-24-1661",
+    "providerKey": "15-24-1661",
+    "nameAr": "عيادة د. مها الدسوقى",
+    "nameEn": "DR.Maha El Desouky Clinic-Qalubia-HO",
+    "providerTypeAr": "هيئة أطباء",
+    "providerTypeEn": "Physician Clinic",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-18-260",
+    "providerKey": "15-18-260",
+    "nameAr": "إنتجريتد كلينك",
+    "nameEn": "Integrated Clinic Company-Red Sea-HO",
+    "providerTypeAr": "مجمع عيادات",
+    "providerTypeEn": "Polyclinic - Group of Doctors with lab, X-ray, treatment facilities",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:296531",
+    "providerKey": "296531",
+    "nameAr": "صيدلية الحكمة",
+    "nameEn": "El Hekma Pharmacy-Cairo-HO",
+    "providerTypeAr": "صيدليات",
+    "providerTypeEn": "Pharmacy",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-15-689",
+    "providerKey": "15-15-689",
+    "nameAr": "حساب دينتال كلينيك",
+    "nameEn": "Hassab Dental Clinic-cairo-HO",
+    "providerTypeAr": "مراكز الأسنان",
+    "providerTypeEn": "Dental Center",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-1-1130",
+    "providerKey": "15-1-1130",
+    "nameAr": "مستشفى نبع الحياة",
+    "nameEn": "Nabe`a El Hayah Hospital-Giza-HO",
+    "providerTypeAr": "مستشفيات",
+    "providerTypeEn": "Hospital",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-12-1471",
+    "providerKey": "15-12-1471",
+    "nameAr": "معامل تحاليل إم أر سى",
+    "nameEn": "MRC Lab-Cairo-HO",
+    "providerTypeAr": "معامل التحاليل",
+    "providerTypeEn": "Laboratory",
+    "locationCount": 4,
+    "activeLocationCount": 4
+  },
+  {
+    "id": "org:15-1-1131",
+    "providerKey": "15-1-1131",
+    "nameAr": "مستشفى ميلينيوم",
+    "nameEn": "Millennium Hospital-Giza-HO",
+    "providerTypeAr": "مستشفيات",
+    "providerTypeEn": "Hospital",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:296897",
+    "providerKey": "296897",
+    "nameAr": "صيدلية د.إيمان فؤاد نصيف",
+    "nameEn": "DR.Eman Fouad Nassef Pharmacy-Menia-HO",
+    "providerTypeAr": "صيدليات",
+    "providerTypeEn": "Pharmacy",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-6-313",
+    "providerKey": "15-6-313",
+    "nameAr": "مايو كلينيك",
+    "nameEn": "MyoClinic-Cairo-HO",
+    "providerTypeAr": "مراكز علاج طبيعي",
+    "providerTypeEn": "Physiotherapy",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-18-261",
+    "providerKey": "15-18-261",
+    "nameAr": "عيادات أيوب التخصصية",
+    "nameEn": "Ayoub Specialized Polyclinics-El Kharga-El Wadi El Gdid-HO",
+    "providerTypeAr": "مجمع عيادات",
+    "providerTypeEn": "Polyclinic - Group of Doctors with lab, X-ray, treatment facilities",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-1-1132",
+    "providerKey": "15-1-1132",
+    "nameAr": "مستشفى دار العيون -قنا",
+    "nameEn": "Dar Al Oyoun Hospital-Qena-HO",
+    "providerTypeAr": "مستشفيات",
+    "providerTypeEn": "Hospital",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-1-1133",
+    "providerKey": "15-1-1133",
+    "nameAr": "مستشفى الهلال الاحمر-منوفية",
+    "nameEn": "Red Crescent Society Hospital-Menoufia-HO",
+    "providerTypeAr": "مستشفيات",
+    "providerTypeEn": "Hospital",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-6-314",
+    "providerKey": "15-6-314",
+    "nameAr": "مركز بريميوم للعلاج الطبيعى",
+    "nameEn": "Peremium Physio Center For Physiotherapy-Cairo-HO",
+    "providerTypeAr": "مراكز علاج طبيعي",
+    "providerTypeEn": "Physiotherapy",
+    "locationCount": 3,
+    "activeLocationCount": 3
+  },
+  {
+    "id": "org:300184",
+    "providerKey": "300184",
+    "nameAr": "صيدلية مستشفى المحور",
+    "nameEn": "El Mehwar Hospital Pharmacy-Giza-HO",
+    "providerTypeAr": "صيدليات",
+    "providerTypeEn": "Pharmacy",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-12-1476",
+    "providerKey": "15-12-1476",
+    "nameAr": "معامل النحاس",
+    "nameEn": "Al-Nahhas Labs-Dakhlia-HO",
+    "providerTypeAr": "معامل التحاليل",
+    "providerTypeEn": "Laboratory",
+    "locationCount": 41,
+    "activeLocationCount": 41
+  },
+  {
+    "id": "org:15-18-267",
+    "providerKey": "15-18-267",
+    "nameAr": "جولف ميد هيلث كير",
+    "nameEn": "Golfmed Healthcare-Cairo-HO",
+    "providerTypeAr": "مجمع عيادات",
+    "providerTypeEn": "Polyclinic - Group of Doctors with lab, X-ray, treatment facilities",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-15-690",
+    "providerKey": "15-15-690",
+    "nameAr": "عيادة د احمد الشافعى",
+    "nameEn": "Dr. Ahmed El Shafey Dental Clinic-cairo-HO",
+    "providerTypeAr": "مراكز الأسنان",
+    "providerTypeEn": "Dental Center",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-1-1136",
+    "providerKey": "15-1-1136",
+    "nameAr": "مستشفى جراند",
+    "nameEn": "Grand Hospital-cairo-HO",
+    "providerTypeAr": "مستشفيات",
+    "providerTypeEn": "Hospital",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:300549",
+    "providerKey": "300549",
+    "nameAr": "صيدلية د. احمد عبد الحليم مبروك",
+    "nameEn": "Dr. Ahmed Abdelhalim Mabrouk Pharmacy-Behira-HO",
+    "providerTypeAr": "صيدليات",
+    "providerTypeEn": "Pharmacy",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:300914",
+    "providerKey": "300914",
+    "nameAr": "صيدلية د. مينا كرم جودة",
+    "nameEn": "DR.Mina Karam Gouda Pharmacy-Qena-HO",
+    "providerTypeAr": "صيدليات",
+    "providerTypeEn": "Pharmacy",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-24-1663",
+    "providerKey": "15-24-1663",
+    "nameAr": "عيادة د.مارتينا كرم جودة",
+    "nameEn": "DR.Martina Karam Gouda-Qena-HO",
+    "providerTypeAr": "هيئة أطباء",
+    "providerTypeEn": "Physician Clinic",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-1-1137",
+    "providerKey": "15-1-1137",
+    "nameAr": "مستشفى السلام للجراحة العامة",
+    "nameEn": "El Salam Hospital For General Surgery-El Wadi El Gdeed-HO",
+    "providerTypeAr": "مستشفيات",
+    "providerTypeEn": "Hospital",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:301280",
+    "providerKey": "301280",
+    "nameAr": "صيدلية د. ميرنا احمد محمد صالح",
+    "nameEn": "Dr. Merna Ahmed Mohamed Saleh-Pharmacy- El Wadi EL Geeded HO",
+    "providerTypeAr": "صيدليات",
+    "providerTypeEn": "Pharmacy",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-24-1477",
+    "providerKey": "15-24-1477",
+    "nameAr": "د عنتر حجاج",
+    "nameEn": "Dr Antar Hagag-Sharkia-HO",
+    "providerTypeAr": "هيئة أطباء",
+    "providerTypeEn": "Physician Clinic",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-24-1664",
+    "providerKey": "15-24-1664",
+    "nameAr": "د.شريف محمد عبدالكريم-قنا",
+    "nameEn": "DR.Sherif Mohamed Abdelkareem-Qena-HO",
+    "providerTypeAr": "هيئة أطباء",
+    "providerTypeEn": "Physician Clinic",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-24-1665",
+    "providerKey": "15-24-1665",
+    "nameAr": "عيادة د. احمد محمد منصور",
+    "nameEn": "DR.Ahmed Mohamed Mansour-Qena-HO",
+    "providerTypeAr": "هيئة أطباء",
+    "providerTypeEn": "Physician Clinic",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-1-1138",
+    "providerKey": "15-1-1138",
+    "nameAr": "مستشفى الحياه التخصصى للنساء و التوليد",
+    "nameEn": "Al Hayat Specialized Center For obstetrics And Gynaecology-Qena-HO",
+    "providerTypeAr": "مستشفيات",
+    "providerTypeEn": "Hospital",
+    "locationCount": 2,
+    "activeLocationCount": 2
+  },
+  {
+    "id": "org:15-6-317",
+    "providerKey": "15-6-317",
+    "nameAr": "مركز دار الراعى للعلاج الطبيعى(د. إنجى ميخائيل)",
+    "nameEn": "Dar El Raie For Physiotherapy (Dr.Engy Mikhail)-Aswan-HO",
+    "providerTypeAr": "مراكز علاج طبيعي",
+    "providerTypeEn": "Physiotherapy",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:301645",
+    "providerKey": "301645",
+    "nameAr": "صيدليات أر إكس-أى سبلاى",
+    "nameEn": "RX-I`Supply Pharmacies-Cairo-HO",
+    "providerTypeAr": "صيدليات",
+    "providerTypeEn": "Pharmacy",
+    "locationCount": 40,
+    "activeLocationCount": 40
+  },
+  {
+    "id": "org:15-14-387",
+    "providerKey": "15-14-387",
+    "nameAr": "رؤى للبصريات",
+    "nameEn": "Roaa Eyewear-Giza-HO",
+    "providerTypeAr": "مراكز البصريات",
+    "providerTypeEn": "Optometry - Vision Service Center",
+    "locationCount": 4,
+    "activeLocationCount": 4
+  },
+  {
+    "id": "org:15-1-1139",
+    "providerKey": "15-1-1139",
+    "nameAr": "مستشفي مبره المحمودية",
+    "nameEn": "Mabaret El Mahmoudia Hospital Behira - HO",
+    "providerTypeAr": "مستشفيات",
+    "providerTypeEn": "Hospital",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-4-334",
+    "providerKey": "15-4-334",
+    "nameAr": "مركز يونيون سكان للأشعه",
+    "nameEn": "Union Scan Radiology Centre Cairo - HO",
+    "providerTypeAr": "مراكز الأشعة",
+    "providerTypeEn": "Radiology Center",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-4-335",
+    "providerKey": "15-4-335",
+    "nameAr": "سكان فور دنت",
+    "nameEn": "Scan For Dent-Cairo-HO",
+    "providerTypeAr": "مراكز الأشعة",
+    "providerTypeEn": "Radiology Center",
+    "locationCount": 5,
+    "activeLocationCount": 5
+  },
+  {
+    "id": "org:15-15-691",
+    "providerKey": "15-15-691",
+    "nameAr": "عيادة اسنان د رامي رشاد زكي",
+    "nameEn": "Dr Rami Rashad Zaki Dental Clinic Luxor - HO",
+    "providerTypeAr": "مراكز الأسنان",
+    "providerTypeEn": "Dental Center",
+    "locationCount": 2,
+    "activeLocationCount": 2
+  },
+  {
+    "id": "org:15-12-1517",
+    "providerKey": "15-12-1517",
+    "nameAr": "معامل الشروق",
+    "nameEn": "El Shorouk Laboratory Suez - HO",
+    "providerTypeAr": "معامل التحاليل",
+    "providerTypeEn": "Laboratory",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-12-1519",
+    "providerKey": "15-12-1519",
+    "nameAr": "معامل الشروق (الأربعين) السويس",
+    "nameEn": "El Shorouk Laboratory Suez - HO",
+    "providerTypeAr": "معامل التحاليل",
+    "providerTypeEn": "Laboratory",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-12-1520",
+    "providerKey": "15-12-1520",
+    "nameAr": "معامل الشروق (الغريب) السويس",
+    "nameEn": "El Shorouk Laboratory Suez - HO",
+    "providerTypeAr": "معامل التحاليل",
+    "providerTypeEn": "Laboratory",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-54-2",
+    "providerKey": "15-54-2",
+    "nameAr": "مؤسسة سوليد تريد للسمعيات",
+    "nameEn": "Solid Trade-Cairo-HO",
+    "providerTypeAr": "مورد أجهزة طبية",
+    "providerTypeEn": "Medical Supplier",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-24-1668",
+    "providerKey": "15-24-1668",
+    "nameAr": "عيادات تراست كير التخصصيه بني سويف",
+    "nameEn": "Trust Care Specialized Clinics Beni Suef - HO",
+    "providerTypeAr": "مجمع عيادات",
+    "providerTypeEn": "Polyclinic - Group of Doctors with lab, X-ray, treatment facilities",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-18-269",
+    "providerKey": "15-18-269",
+    "nameAr": "عيادات بيور كلينيك",
+    "nameEn": "Pure Clinic-Portsaid-HO",
+    "providerTypeAr": "مجمع عيادات",
+    "providerTypeEn": "Polyclinic - Group of Doctors with lab, X-ray, treatment facilities",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:334883",
+    "providerKey": "334883",
+    "nameAr": "صيدلية د.عمرو حمد",
+    "nameEn": "Dr.Amr Hamad Pharmacy-Suez-HO",
+    "providerTypeAr": "صيدليات",
+    "providerTypeEn": "Pharmacy",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-1-1140",
+    "providerKey": "15-1-1140",
+    "nameAr": "مركز الرواد لتصحيح الابصار",
+    "nameEn": "The Specialized Center Rowaad of Eyes and Lasik Beni Suef - HO",
+    "providerTypeAr": "مستشفيات",
+    "providerTypeEn": "Hospital",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-4-340",
+    "providerKey": "15-4-340",
+    "nameAr": "مركز جولدن سكان للأشعة",
+    "nameEn": "Golden Scan-Suez-HO",
+    "providerTypeAr": "مراكز الأشعة",
+    "providerTypeEn": "Radiology Center",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:335248",
+    "providerKey": "335248",
+    "nameAr": "صيدلية السنترال المنوفية",
+    "nameEn": "Al Central Pharmacy Menoufia - HO",
+    "providerTypeAr": "صيدليات",
+    "providerTypeEn": "Pharmacy",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-1-1141",
+    "providerKey": "15-1-1141",
+    "nameAr": "مستشفى طيبة",
+    "nameEn": "Tiba Hospital-Cairo-HO",
+    "providerTypeAr": "مستشفيات",
+    "providerTypeEn": "Hospital",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-15-697",
+    "providerKey": "15-15-697",
+    "nameAr": "عيادة كرمه لطب الاسنان ( د جورج كرم )",
+    "nameEn": "Karma Dental Clinic Dr. George Karam Qena - HO",
+    "providerTypeAr": "مراكز الأسنان",
+    "providerTypeEn": "Dental Center",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-18-270",
+    "providerKey": "15-18-270",
+    "nameAr": "عيادات كنوز الهدى التخصصية",
+    "nameEn": "Kunooz Al Huda Specialized clinics-Sharqia-HO",
+    "providerTypeAr": "مجمع عيادات",
+    "providerTypeEn": "Polyclinic - Group of Doctors with lab, X-ray, treatment facilities",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-24-1669",
+    "providerKey": "15-24-1669",
+    "nameAr": "عيادة د.احمد سعيد عبد الرزاق",
+    "nameEn": "Dr.Ahmed Saeed Abdelrazzaq clinic-Cairo-HO",
+    "providerTypeAr": "هيئة أطباء",
+    "providerTypeEn": "Physician Clinic",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-14-391",
+    "providerKey": "15-14-391",
+    "nameAr": "بركة فاشون أوبتكس",
+    "nameEn": "Baraka Fashion Optics Cairo - HO",
+    "providerTypeAr": "مراكز البصريات",
+    "providerTypeEn": "Optometry - Vision Service Center",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-18-271",
+    "providerKey": "15-18-271",
+    "nameAr": "بيويل للخدمات الصحية",
+    "nameEn": "B Well For Healthcare Services. Cairo - HO",
+    "providerTypeAr": "مجمع عيادات",
+    "providerTypeEn": "Polyclinic - Group of Doctors with lab, X-ray, treatment facilities",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-4-342",
+    "providerKey": "15-4-342",
+    "nameAr": "مركز اورا سكان لاشعة الفم والوجه والفكين",
+    "nameEn": "Ora Scan Maxillofacial Radiology Center Sohag - HO",
+    "providerTypeAr": "مراكز الأشعة",
+    "providerTypeEn": "Radiology Center",
+    "locationCount": 12,
+    "activeLocationCount": 12
+  },
+  {
+    "id": "org:15-1-1143",
+    "providerKey": "15-1-1143",
+    "nameAr": "مركز أن كير الطبى",
+    "nameEn": "In Care Medical Center-Cairo-HO",
+    "providerTypeAr": "مستشفيات",
+    "providerTypeEn": "Hospital",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:335978",
+    "providerKey": "335978",
+    "nameAr": "صيدلية مستشفي السعودي الألماني الاسكندريه",
+    "nameEn": "Saudi German Hospital Pharmacy - Alexandria - HO",
+    "providerTypeAr": "صيدليات",
+    "providerTypeEn": "Pharmacy",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-6-318",
+    "providerKey": "15-6-318",
+    "nameAr": "مركز القمة للعلاج الطبيعى",
+    "nameEn": "Apex Center For Physiotherapy-Cairo-HO",
+    "providerTypeAr": "مراكز علاج طبيعي",
+    "providerTypeEn": "Physiotherapy",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-24-1671",
+    "providerKey": "15-24-1671",
+    "nameAr": "عيادة د محمد حلمي",
+    "nameEn": "Dr. Mohamed Helmy Clinic - Menoufia - HO",
+    "providerTypeAr": "هيئة أطباء",
+    "providerTypeEn": "Physician Clinic",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-24-1672",
+    "providerKey": "15-24-1672",
+    "nameAr": "د احمد محمد حسن",
+    "nameEn": "Dr Ahmed Mohamed Hassan Clinic - Qena - Ho",
+    "providerTypeAr": "هيئة أطباء",
+    "providerTypeEn": "Physician Clinic",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-1-1144",
+    "providerKey": "15-1-1144",
+    "nameAr": "مركز حيدرة للجهاز الهضمي",
+    "nameEn": "Haydara Center for Gastroenterology - Gharbia - HO",
+    "providerTypeAr": "مستشفيات",
+    "providerTypeEn": "Hospital",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-1-1145",
+    "providerKey": "15-1-1145",
+    "nameAr": "مستشفى أهل مصر",
+    "nameEn": "Ahl Masr Hospital For Burn Treatment-Cairo-HO",
+    "providerTypeAr": "مستشفيات",
+    "providerTypeEn": "Hospital",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-6-319",
+    "providerKey": "15-6-319",
+    "nameAr": "مركز البتول للعلاج الطبيعى",
+    "nameEn": "Al Batoul Center Physiotherapy-Giza-HO",
+    "providerTypeAr": "مراكز علاج طبيعي",
+    "providerTypeEn": "Physiotherapy",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-18-272",
+    "providerKey": "15-18-272",
+    "nameAr": "عيادات نورين التخصصية",
+    "nameEn": "Noreen Specialized Clinics-Sharkia-HO",
+    "providerTypeAr": "مجمع عيادات",
+    "providerTypeEn": "Polyclinic - Group of Doctors with lab, X-ray, treatment facilities",
+    "locationCount": 1,
+    "activeLocationCount": 1
+  },
+  {
+    "id": "org:15-14-392",
+    "providerKey": "15-14-392",
+    "nameAr": "م جهار للبصريات",
+    "nameEn": "M.Jahhar Optics-Cairo-HO",
+    "providerTypeAr": "مراكز البصريات",
+    "providerTypeEn": "Optometry - Vision Service Center",
     "locationCount": 1,
     "activeLocationCount": 1
   }
