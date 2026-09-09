@@ -1,20 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
-import {
-  BookmarkPlus,
-  Filter,
-  LocateFixed,
-  Loader2,
-  MapPinOff,
-  RotateCcw,
-  X,
-} from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
-import { toast } from "sonner";
-
 import {
   EmptyState,
   ErrorState,
-  ProviderListSkeleton,
+  DirectoryPreparingState,
 } from "@/components/common/States";
 import { FilterChips } from "@/components/providers/FilterChips";
 import { FilterPanel } from "@/components/providers/FilterPanel";
@@ -34,27 +21,44 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { providersQueryOptions } from "@/data/provider-repository";
+import {
+  getProvidersLoadPhase,
+  providersQueryOptions,
+  subscribeProvidersLoadPhase,
+} from "@/data/provider-repository";
 import { useFavorites } from "@/hooks/useFavorites";
 import { useSavedSearches } from "@/hooks/useSavedSearches";
 import { useUserLocation } from "@/hooks/useUserLocation";
 import { cn } from "@/lib/utils";
 import {
+  buildDistanceMap,
   buildFacets,
   countActiveFilters,
+  facetFiltersKey,
   filterByRadius,
   filterProviders,
   filtersNeedPrune,
   pruneFiltersToFacets,
   QUICK_TYPE_PRIORITY,
   sortProviders,
-  withDistances,
 } from "@/lib/provider-search";
 import {
   emptyFilters,
   type ProviderFilters,
   type SortKey,
 } from "@/types/provider";
+import { useDeferredValue, useEffect, useMemo, useState, useTransition } from "react";
+import { toast } from "sonner";
+import { useQuery } from "@tanstack/react-query";
+import {
+  BookmarkPlus,
+  Filter,
+  LocateFixed,
+  Loader2,
+  MapPinOff,
+  RotateCcw,
+  X,
+} from "lucide-react";
 
 const PENDING_SEARCH_KEY = "hpd.pendingSearch.v1";
 const RADIUS_OPTIONS: Array<{ value: number | null; label: string }> = [
@@ -97,7 +101,7 @@ function useDebouncedValue<T>(value: T, delayMs: number): T {
 
 export function DirectoryPage() {
   const { data, isLoading, isError, refetch, isFetching } = useQuery(providersQueryOptions);
-  const { isFavorite, toggleFavorite } = useFavorites();
+  const { favoriteIds, toggleFavorite } = useFavorites();
   const { saveSearch } = useSavedSearches();
   const {
     status: locationStatus,
@@ -112,7 +116,20 @@ export function DirectoryPage() {
   const [sort, setSort] = useState<SortKey>("relevance");
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [radiusKm, setRadiusKm] = useState<number | null>(10);
+  const [loadPhase, setLoadPhase] = useState(getProvidersLoadPhase);
+  const [, startTransition] = useTransition();
   const debouncedQuery = useDebouncedValue(filters.query, 200);
+  const deferredFilters = useDeferredValue(filters);
+  const deferredQuery = useDeferredValue(debouncedQuery);
+  const deferredSort = useDeferredValue(sort);
+  const deferredRadius = useDeferredValue(radiusKm);
+  const filtersPending =
+    deferredFilters !== filters ||
+    deferredQuery !== debouncedQuery ||
+    deferredSort !== sort ||
+    deferredRadius !== radiusKm;
+
+  useEffect(() => subscribeProvidersLoadPhase(setLoadPhase), []);
 
   useEffect(() => {
     const pending = readPendingSearch();
@@ -123,15 +140,19 @@ export function DirectoryPage() {
     if (locationReady) setSort("distance");
   }, [locationReady]);
 
+  const facetKey = facetFiltersKey(deferredFilters);
   const facets = useMemo(
-    () => buildFacets(data ?? [], filters),
-    [data, filters],
+    () => buildFacets(data ?? [], deferredFilters),
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- facetKey captures facet fields only
+    [data, facetKey],
   );
 
   useEffect(() => {
     if (!data?.length) return;
     if (!filtersNeedPrune(filters, facets)) return;
-    setFilters((prev) => pruneFiltersToFacets(prev, facets));
+    startTransition(() => {
+      setFilters((prev) => pruneFiltersToFacets(prev, facets));
+    });
   }, [data, facets, filters]);
 
   const quickTypes = useMemo(() => {
@@ -159,31 +180,44 @@ export function DirectoryPage() {
     locationStatus === "unavailable" ||
     locationStatus === "insecure";
 
+  const distances = useMemo(() => {
+    if (!data || !locationReady || !coords) return undefined;
+    return buildDistanceMap(data, coords);
+  }, [data, locationReady, coords]);
+
   const results = useMemo(() => {
     if (!data) return [];
-    const withQuery = { ...filters, query: debouncedQuery };
+    const withQuery = { ...deferredFilters, query: deferredQuery };
     let list = filterProviders(data, withQuery);
-    if (locationReady && coords) {
-      list = withDistances(list, coords);
-      list = filterByRadius(list, radiusKm);
+    if (distances) {
+      list = filterByRadius(list, deferredRadius, distances);
     }
-    return sortProviders(list, sort, debouncedQuery);
-  }, [data, filters, debouncedQuery, sort, locationReady, coords, radiusKm]);
+    return sortProviders(list, deferredSort, deferredQuery, distances);
+  }, [
+    data,
+    deferredFilters,
+    deferredQuery,
+    deferredSort,
+    deferredRadius,
+    distances,
+  ]);
 
   const activeFilterCount = countActiveFilters(filters);
   const nearbyActive = locationReady;
 
   const toggleFilter = (key: FacetKey, value: string) => {
-    setFilters((prev) => {
-      const list = prev[key] as string[];
-      const next = list.includes(value)
-        ? list.filter((v) => v !== value)
-        : [...list, value];
-      return { ...prev, [key]: next };
+    startTransition(() => {
+      setFilters((prev) => {
+        const list = prev[key] as string[];
+        const next = list.includes(value)
+          ? list.filter((v) => v !== value)
+          : [...list, value];
+        return { ...prev, [key]: next };
+      });
     });
   };
 
-  const clearFilters = () => setFilters(emptyFilters);
+  const clearFilters = () => startTransition(() => setFilters(emptyFilters));
 
   const canSaveSearch = activeFilterCount > 0 || Boolean(filters.query.trim());
 
@@ -207,11 +241,15 @@ export function DirectoryPage() {
     setSort("relevance");
   };
 
-  if (isLoading) {
+  if (isLoading || loadPhase === "loading" || loadPhase === "preparing") {
     return (
       <div className="space-y-4">
         <DirectoryHeader />
-        <ProviderListSkeleton count={4} />
+        <DirectoryPreparingState
+          message={
+            loadPhase === "preparing" ? "جاري تجهيز الدليل…" : "جاري تحميل الدليل…"
+          }
+        />
       </div>
     );
   }
@@ -516,6 +554,7 @@ export function DirectoryPage() {
             </>
           )}
           {isFetching && !isLoading ? " · جاري التحديث…" : ""}
+          {filtersPending ? " · جاري التصفية…" : ""}
         </p>
       </div>
 
@@ -573,8 +612,9 @@ export function DirectoryPage() {
           ) : (
             <ProviderList
               providers={results}
-              isFavorite={isFavorite}
+              favoriteIds={favoriteIds}
               onToggleFavorite={toggleFavorite}
+              distances={distances}
             />
           )}
         </div>

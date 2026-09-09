@@ -13,6 +13,8 @@ import { useFavorites } from "@/hooks/useFavorites";
 
 export const Route = createFileRoute("/_app/providers/$providerId")({
   component: ProviderDetailPage,
+  pendingComponent: () => <ProviderDetailSkeleton />,
+  pendingMs: 150,
   head: () => ({
     meta: [{ title: "مقدم الخدمة" }],
   }),

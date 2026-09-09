@@ -5,7 +5,7 @@
  * backend persistence later without touching components.
  */
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 const STORAGE_KEY = "hpd.favorites.v1";
 
@@ -55,5 +55,7 @@ export function useFavorites() {
 
   const isFavorite = useCallback((id: string) => favorites.includes(id), [favorites]);
 
-  return { favorites, toggleFavorite, isFavorite };
+  const favoriteIds = useMemo(() => new Set(favorites), [favorites]);
+
+  return { favorites, favoriteIds, toggleFavorite, isFavorite };
 }

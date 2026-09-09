@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Heart, MapPin, Navigation, Phone, ExternalLink, MessageCircle } from "lucide-react";
+import { memo } from "react";
 
 import { PhoneActionMenu } from "@/components/providers/PhoneActionMenu";
 import { Button } from "@/components/ui/button";
@@ -24,7 +25,11 @@ interface Props {
   onToggleFavorite: (id: string) => void;
 }
 
-export function ProviderCard({ provider, isFavorite, onToggleFavorite }: Props) {
+export const ProviderCard = memo(function ProviderCard({
+  provider,
+  isFavorite,
+  onToggleFavorite,
+}: Props) {
   const { location } = provider;
   const distance =
     typeof location.distanceKm === "number" ? formatDistanceKm(location.distanceKm) : null;
@@ -125,4 +130,4 @@ export function ProviderCard({ provider, isFavorite, onToggleFavorite }: Props) 
       </div>
     </article>
   );
-}
+});

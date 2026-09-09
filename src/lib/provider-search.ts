@@ -1,28 +1,22 @@
 /**
  * Data-driven search, filtering, faceting and sorting.
  *
- * All logic is pure and operates on arrays of `Provider`, so it works the same
- * with 10 mock records or tens of thousands of real ones.
+ * Prefers precomputed `searchBlob` / `nameNorm` on each Provider (attached at
+ * prepare time). Falls back to on-the-fly normalize only if missing.
  */
 
-import type { GeoPoint, Provider, ProviderFilters, SortKey } from "@/types/provider";
+import { normalize } from "@/lib/normalize-text";
 import { distanceKm } from "@/lib/geo";
+import type { GeoPoint, Provider, ProviderFilters, SortKey } from "@/types/provider";
 
-/** Normalize Arabic/Latin text for tolerant search matching. */
-export const normalize = (value: string) =>
-  value
-    .toLowerCase()
-    .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[أإآٱ]/g, "ا")
-    .replace(/ة/g, "ه")
-    .replace(/ى/g, "ي")
-    .replace(/ؤ/g, "و")
-    .replace(/ئ/g, "ي")
-    .replace(/ً|ٌ|ٍ|َ|ُ|ِ|ّ|ْ|ٰ/g, "")
-    .trim();
+export { normalize };
 
-function searchableText(provider: Provider): string {
+function nameNormOf(provider: Provider): string {
+  return provider.nameNorm ?? normalize(provider.name);
+}
+
+function searchBlobOf(provider: Provider): string {
+  if (provider.searchBlob) return provider.searchBlob;
   return normalize(
     [
       provider.name,
@@ -40,8 +34,8 @@ function searchableText(provider: Provider): string {
 /** Cheap relevance score: name matches beat field matches. */
 function relevanceScore(provider: Provider, tokens: string[]): number {
   if (tokens.length === 0) return 0;
-  const name = normalize(provider.name);
-  const haystack = searchableText(provider);
+  const name = nameNormOf(provider);
+  const haystack = searchBlobOf(provider);
   let score = 0;
   for (const token of tokens) {
     if (name.startsWith(token)) score += 6;
@@ -54,20 +48,38 @@ function relevanceScore(provider: Provider, tokens: string[]): number {
 
 function matchesTokens(provider: Provider, tokens: string[]): boolean {
   if (tokens.length === 0) return true;
-  const haystack = searchableText(provider);
+  const haystack = searchBlobOf(provider);
   return tokens.every((token) => haystack.includes(token));
 }
 
-/** Attach distanceKm from a user location (does not mutate input). */
-export function withDistances(providers: Provider[], origin: GeoPoint): Provider[] {
-  return providers.map((provider) => {
+/** Build id → distanceKm without cloning providers. */
+export function buildDistanceMap(
+  providers: Provider[],
+  origin: GeoPoint,
+): Map<string, number> {
+  const map = new Map<string, number>();
+  for (const provider of providers) {
     const coords = provider.location.coordinates;
-    if (!coords) return provider;
+    if (!coords) continue;
+    map.set(provider.id, Math.round(distanceKm(origin, coords) * 10) / 10);
+  }
+  return map;
+}
+
+/**
+ * @deprecated Prefer buildDistanceMap + filterByRadius with distances.
+ * Kept for callers that still need attached distanceKm on the object.
+ */
+export function withDistances(providers: Provider[], origin: GeoPoint): Provider[] {
+  const distances = buildDistanceMap(providers, origin);
+  return providers.map((provider) => {
+    const d = distances.get(provider.id);
+    if (d === undefined) return provider;
     return {
       ...provider,
       location: {
         ...provider.location,
-        distanceKm: Math.round(distanceKm(origin, coords) * 10) / 10,
+        distanceKm: d,
       },
     };
   });
@@ -80,12 +92,13 @@ export function withDistances(providers: Provider[], origin: GeoPoint): Provider
 export function filterByRadius(
   providers: Provider[],
   radiusKm: number | null,
+  distances?: Map<string, number>,
 ): Provider[] {
   if (radiusKm == null) return providers;
-  return providers.filter(
-    (p) =>
-      typeof p.location.distanceKm === "number" && p.location.distanceKm <= radiusKm,
-  );
+  return providers.filter((p) => {
+    const d = distances?.get(p.id) ?? p.location.distanceKm;
+    return typeof d === "number" && d <= radiusKm;
+  });
 }
 
 export function filterProviders(
@@ -122,6 +135,7 @@ export function sortProviders(
   providers: Provider[],
   sort: SortKey,
   query: string,
+  distances?: Map<string, number>,
 ): Provider[] {
   const tokens = normalize(query).split(/\s+/).filter(Boolean);
   const list = [...providers];
@@ -135,8 +149,10 @@ export function sortProviders(
       );
     case "distance":
       return list.sort((a, b) => {
-        const da = a.location.distanceKm ?? Number.POSITIVE_INFINITY;
-        const db = b.location.distanceKm ?? Number.POSITIVE_INFINITY;
+        const da =
+          distances?.get(a.id) ?? a.location.distanceKm ?? Number.POSITIVE_INFINITY;
+        const db =
+          distances?.get(b.id) ?? b.location.distanceKm ?? Number.POSITIVE_INFINITY;
         return da - db || a.name.localeCompare(b.name, "ar");
       });
     case "relevance":
@@ -160,35 +176,117 @@ export interface Facets {
 
 type FacetFilterKey = Exclude<keyof ProviderFilters, "query">;
 
-const collectFacet = (values: string[]) =>
-  Array.from(new Set(values.filter(Boolean))).sort((a, b) => a.localeCompare(b, "ar"));
+const FACET_KEYS: FacetFilterKey[] = [
+  "types",
+  "specialties",
+  "governorates",
+  "areas",
+  "networks",
+  "services",
+];
+
+const collectFacet = (values: Iterable<string>) =>
+  Array.from(new Set(Array.from(values).filter(Boolean))).sort((a, b) =>
+    a.localeCompare(b, "ar"),
+  );
+
+function matchesFacetFilters(
+  provider: Provider,
+  filters: ProviderFilters,
+  omit: FacetFilterKey | null,
+): boolean {
+  if (omit !== "types" && filters.types.length && !filters.types.includes(provider.type)) {
+    return false;
+  }
+  if (
+    omit !== "networks" &&
+    filters.networks.length &&
+    !filters.networks.includes(provider.network)
+  ) {
+    return false;
+  }
+  if (
+    omit !== "governorates" &&
+    filters.governorates.length &&
+    !filters.governorates.includes(provider.location.governorate)
+  ) {
+    return false;
+  }
+  if (
+    omit !== "areas" &&
+    filters.areas.length &&
+    !filters.areas.includes(provider.location.area)
+  ) {
+    return false;
+  }
+  if (
+    omit !== "specialties" &&
+    filters.specialties.length &&
+    !provider.specialties.some((s) => filters.specialties.includes(s.name))
+  ) {
+    return false;
+  }
+  if (
+    omit !== "services" &&
+    filters.services.length &&
+    !provider.services.some((s) => filters.services.includes(s.name))
+  ) {
+    return false;
+  }
+  return true;
+}
 
 /**
- * Facet values from providers matching all active filters except the listed key
+ * Facet values from providers matching all active filters except each listed key
  * (so multi-select within a group still shows siblings; other groups narrow).
+ *
+ * Single pass over providers collects all six facet sets (ignores query).
  */
 export function buildFacets(providers: Provider[], filters: ProviderFilters): Facets {
-  const matchingExcept = (omit: FacetFilterKey) =>
-    filterProviders(providers, {
-      ...filters,
-      query: "",
-      [omit]: [],
-    });
+  const buckets: Record<FacetFilterKey, Set<string>> = {
+    types: new Set(),
+    specialties: new Set(),
+    governorates: new Set(),
+    areas: new Set(),
+    networks: new Set(),
+    services: new Set(),
+  };
 
-  const forTypes = matchingExcept("types");
-  const forSpecialties = matchingExcept("specialties");
-  const forGovernorates = matchingExcept("governorates");
-  const forAreas = matchingExcept("areas");
-  const forNetworks = matchingExcept("networks");
-  const forServices = matchingExcept("services");
+  for (const provider of providers) {
+    for (const key of FACET_KEYS) {
+      if (!matchesFacetFilters(provider, filters, key)) continue;
+      switch (key) {
+        case "types":
+          if (provider.type) buckets.types.add(provider.type);
+          break;
+        case "networks":
+          buckets.networks.add(provider.network);
+          break;
+        case "governorates":
+          if (provider.location.governorate) {
+            buckets.governorates.add(provider.location.governorate);
+          }
+          break;
+        case "areas":
+          if (provider.location.area) buckets.areas.add(provider.location.area);
+          break;
+        case "specialties":
+          for (const s of provider.specialties) buckets.specialties.add(s.name);
+          break;
+        case "services":
+          for (const s of provider.services) buckets.services.add(s.name);
+          break;
+      }
+    }
+  }
 
   return {
-    types: collectFacet(forTypes.map((p) => p.type)),
-    specialties: collectFacet(forSpecialties.flatMap((p) => p.specialties.map((s) => s.name))),
-    governorates: collectFacet(forGovernorates.map((p) => p.location.governorate)),
-    areas: collectFacet(forAreas.map((p) => p.location.area)),
-    networks: collectFacet(forNetworks.map((p) => p.network)),
-    services: collectFacet(forServices.flatMap((p) => p.services.map((s) => s.name))),
+    types: collectFacet(buckets.types),
+    specialties: collectFacet(buckets.specialties),
+    governorates: collectFacet(buckets.governorates),
+    areas: collectFacet(buckets.areas),
+    networks: collectFacet(buckets.networks),
+    services: collectFacet(buckets.services),
   };
 }
 
@@ -248,3 +346,15 @@ export const QUICK_TYPE_PRIORITY = [
   "مراكز علاج طبيعي",
   "مراكز البصريات",
 ] as const;
+
+/** Stable facet-only signature so query keystrokes don't rebuild facets. */
+export function facetFiltersKey(filters: ProviderFilters): string {
+  return JSON.stringify({
+    types: filters.types,
+    specialties: filters.specialties,
+    governorates: filters.governorates,
+    areas: filters.areas,
+    networks: filters.networks,
+    services: filters.services,
+  });
+}

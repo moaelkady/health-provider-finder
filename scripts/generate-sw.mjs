@@ -48,12 +48,9 @@ async function main() {
     },
   });
 
-  // Large JSON is excluded from globPatterns; add with content-hash revisions.
-  const dataFiles = [
-    "data/generated/locations.json",
-    "data/generated/meta.json",
-    "data/generated/organizations.json",
-  ];
+  // Do not precache provider JSON (multi‑MB) — runtime CacheFirst fills after first fetch.
+  // meta.json is tiny and lets clients detect data revisions quickly when online.
+  const dataFiles = ["data/generated/meta.json"];
 
   const additionalManifestEntries = dataFiles
     .map((rel) => {
@@ -75,8 +72,12 @@ async function main() {
       "icons/**/*",
       "fonts/**/*",
     ],
-    globIgnores: ["**/sw.js", "**/workbox-*.js"],
-    maximumFileSizeToCacheInBytes: 8 * 1024 * 1024,
+    globIgnores: [
+      "**/sw.js",
+      "**/workbox-*.js",
+      "**/data/generated/**",
+    ],
+    maximumFileSizeToCacheInBytes: 2 * 1024 * 1024,
     additionalManifestEntries,
   });
 
@@ -84,7 +85,7 @@ async function main() {
     console.warn("[generate-sw]", warning);
   }
   console.log(
-    `[generate-sw] Precached ${count} files (glob ${(size / 1024 / 1024).toFixed(2)} MB + data JSON)`,
+    `[generate-sw] Precached ${count} files (glob ${(size / 1024 / 1024).toFixed(2)} MB; provider JSON via runtime CacheFirst)`,
   );
 }
 

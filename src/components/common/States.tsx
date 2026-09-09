@@ -3,6 +3,7 @@ import { AlertTriangle, SearchX } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import { cn } from "@/lib/utils";
 
 export function EmptyState({
   icon,
@@ -46,9 +47,9 @@ export function ErrorState({ onRetry }: { onRetry?: () => void }) {
   );
 }
 
-export function ProviderCardSkeleton() {
+export function ProviderCardSkeleton({ className }: { className?: string }) {
   return (
-    <div className="rounded-xl border border-border bg-card p-5 shadow-card">
+    <div className={cn("rounded-xl border border-border bg-card p-5 shadow-card", className)}>
       <Skeleton className="h-5 w-2/3" />
       <Skeleton className="mt-2 h-3 w-1/3" />
       <div className="mt-4 flex gap-2">
@@ -75,6 +76,17 @@ export function ProviderListSkeleton({ count = 6 }: { count?: number }) {
       {Array.from({ length: count }).map((_, i) => (
         <ProviderCardSkeleton key={i} />
       ))}
+    </div>
+  );
+}
+
+export function DirectoryPreparingState({ message }: { message?: string }) {
+  return (
+    <div className="space-y-4">
+      <p className="text-sm font-medium text-foreground" role="status">
+        {message ?? "جاري تجهيز الدليل…"}
+      </p>
+      <ProviderListSkeleton count={6} />
     </div>
   );
 }

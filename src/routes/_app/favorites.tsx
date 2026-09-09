@@ -15,6 +15,8 @@ import { useFavorites } from "@/hooks/useFavorites";
 
 export const Route = createFileRoute("/_app/favorites")({
   component: FavoritesPage,
+  pendingComponent: () => <ProviderListSkeleton count={6} />,
+  pendingMs: 150,
   head: () => ({
     meta: [
       { title: "المفضلة" },
@@ -28,7 +30,7 @@ export const Route = createFileRoute("/_app/favorites")({
 
 function FavoritesPage() {
   const { data, isLoading, isError, refetch } = useQuery(providersQueryOptions);
-  const { favorites, isFavorite, toggleFavorite } = useFavorites();
+  const { favorites, favoriteIds, toggleFavorite } = useFavorites();
 
   const saved = useMemo(() => {
     if (!data) return [];
@@ -47,7 +49,7 @@ function FavoritesPage() {
         </p>
       </div>
 
-      {isLoading && <ProviderListSkeleton count={3} />}
+      {isLoading && <ProviderListSkeleton count={6} />}
       {isError && <ErrorState onRetry={() => refetch()} />}
       {!isLoading && !isError && saved.length === 0 && (
         <EmptyState
@@ -71,7 +73,7 @@ function FavoritesPage() {
           </p>
           <ProviderList
             providers={saved}
-            isFavorite={isFavorite}
+            favoriteIds={favoriteIds}
             onToggleFavorite={toggleFavorite}
           />
         </>

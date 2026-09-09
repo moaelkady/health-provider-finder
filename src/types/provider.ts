@@ -72,6 +72,10 @@ export interface Provider {
   status: ProviderStatus;
   /** Optional free-text note shown on the detail page. */
   notes?: string;
+  /** Precomputed normalized name for search/sort (set at prepare time). */
+  nameNorm?: string;
+  /** Precomputed searchable haystack (set at prepare time). */
+  searchBlob?: string;
 }
 
 export type SortKey = "relevance" | "name" | "distance" | "type";
