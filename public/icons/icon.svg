@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="دليل مقدمي الخدمة">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#347a8a"/>
+      <stop offset="100%" stop-color="#2a5f6c"/>
+    </linearGradient>
+  </defs>
+  <!-- Rounded square background -->
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <!-- Location pin -->
+  <path fill="#ffffff" d="M256 96c-66.3 0-120 53.7-120 120 0 90 120 200 120 200s120-110 120-200c0-66.3-53.7-120-120-120zm0 168a48 48 0 1 1 0-96 48 48 0 0 1 0 96z"/>
+  <!-- Medical cross inside pin circle -->
+  <rect x="236" y="188" width="40" height="104" rx="8" fill="#2d6b7a"/>
+  <rect x="204" y="220" width="104" height="40" rx="8" fill="#2d6b7a"/>
+</svg>

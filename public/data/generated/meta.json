@@ -1,0 +1,33 @@
+{
+  "importId": 2,
+  "sourceFilename": "providers.json",
+  "sourceContentHash": "f48ba690c8ed0c60a17537779bbbbfcf97ad60130f4bbdcd2a79bcbba1260267",
+  "recordCount": 4547,
+  "inserted": 0,
+  "updated": 0,
+  "unchanged": 4494,
+  "deactivated": 0,
+  "rejected": 4,
+  "warnings": 2203,
+  "geocoding": {
+    "totalLocations": 4494,
+    "uniqueAddresses": 4361,
+    "alreadyCached": 1100,
+    "newlyGeocoded": 500,
+    "approximate": 671,
+    "unresolved": 0,
+    "exactGeocoded": 1044,
+    "apiRequests": 500,
+    "failedApiRequests": 0,
+    "cacheHitRate": 25.223572575097453,
+    "outOfEgyptRejected": 0,
+    "locationsNeedingGeocode": 3301,
+    "estimatedApiRequests": 3261,
+    "remainingUncached": 2761,
+    "stoppedAtMaxRequests": true
+  },
+  "exportedAt": "2026-09-08T20:30:02.328Z",
+  "locationCount": 4494,
+  "activeLocationCount": 4494,
+  "organizationCount": 1448
+}
