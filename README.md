@@ -650,5 +650,5 @@ The app is installable as a Progressive Web App.
 - Maps, WhatsApp/call, geolocation, and SOS still need device capabilities / network.
 - When offline, a banner shows: "أنت غير متصل — يتم عرض البيانات المحفوظة".
 - Custom teal healthcare icons live under `public/icons/` (favicon + install icons).
-- Manifest: `public/manifest.webmanifest`. Service worker is generated after `vite build` by `scripts/generate-sw.mjs` into `.output/public/sw.js` (required because TanStack Start’s SSR build is incompatible with `vite-plugin-pwa` SW hooks).
+- Manifest: `public/manifest.webmanifest`. Service worker is generated after `vite build` by `scripts/generate-sw.mjs` into `.output/public/sw.js` locally, or `.vercel/output/static/sw.js` on Vercel (required because TanStack Start’s SSR build is incompatible with `vite-plugin-pwa` SW hooks).
 - Performance: `npm run build` first generates slim `providers.min.json`, then Vite, then the SW. Cold prepare runs in a Web Worker; repeat visits hydrate from IndexedDB when the data hash matches.

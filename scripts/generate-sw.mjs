@@ -1,6 +1,7 @@
 /**
  * Post-build Workbox injectManifest for TanStack Start.
- * Vite/Nitro emit assets to `.output/public`; SW generation must run after that.
+ * Local Nitro emits to `.output/public`; Vercel preset emits to `.vercel/output/static`.
+ * SW generation must run after `vite build`.
  */
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync } from "node:fs";
@@ -11,7 +12,19 @@ import { build } from "vite";
 import { injectManifest } from "workbox-build";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const publicOut = path.join(root, ".output", "public");
+
+function resolvePublicOut() {
+  const local = path.join(root, ".output", "public");
+  const vercel = path.join(root, ".vercel", "output", "static");
+  const onVercel = Boolean(process.env.VERCEL || process.env.VERCEL_ENV);
+  const candidates = onVercel ? [vercel, local] : [local, vercel];
+
+  for (const dir of candidates) {
+    if (existsSync(dir)) return dir;
+  }
+
+  throw new Error(`Missing build output (tried ${candidates.join(", ")}). Run vite build first.`);
+}
 
 function revisionFor(filePath) {
   const buf = readFileSync(filePath);
@@ -19,9 +32,8 @@ function revisionFor(filePath) {
 }
 
 async function main() {
-  if (!existsSync(publicOut)) {
-    throw new Error(`Missing build output at ${publicOut}. Run vite build first.`);
-  }
+  const publicOut = resolvePublicOut();
+  console.log(`[generate-sw] Using public output: ${path.relative(root, publicOut)}`);
 
   await build({
     configFile: false,
@@ -67,16 +79,8 @@ async function main() {
     swSrc: path.join(publicOut, "sw.js"),
     swDest: path.join(publicOut, "sw.js"),
     globDirectory: publicOut,
-    globPatterns: [
-      "**/*.{js,css,woff2,png,ico,svg,webmanifest,html}",
-      "icons/**/*",
-      "fonts/**/*",
-    ],
-    globIgnores: [
-      "**/sw.js",
-      "**/workbox-*.js",
-      "**/data/generated/**",
-    ],
+    globPatterns: ["**/*.{js,css,woff2,png,ico,svg,webmanifest,html}", "icons/**/*", "fonts/**/*"],
+    globIgnores: ["**/sw.js", "**/workbox-*.js", "**/data/generated/**"],
     maximumFileSizeToCacheInBytes: 2 * 1024 * 1024,
     additionalManifestEntries,
   });
