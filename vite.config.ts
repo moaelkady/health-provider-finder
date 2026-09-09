@@ -30,6 +30,9 @@ export default defineConfig({
     viteReact(),
     tailwindcss(),
     nitro(),
+    // Manifest is static at public/manifest.webmanifest.
+    // SW is built post-vite via scripts/generate-sw.ts because TanStack Start's
+    // SSR build is incompatible with vite-plugin-pwa's SW closeBundle hook.
     ...(phoneDev ? [basicSsl()] : []),
   ],
 });

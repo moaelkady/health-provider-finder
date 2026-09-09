@@ -53,4 +53,6 @@ export const providersQueryOptions = {
   queryKey: ["providers"] as const,
   queryFn: getProviders,
   staleTime: 5 * 60 * 1000,
+  gcTime: Infinity,
+  networkMode: "offlineFirst" as const,
 };

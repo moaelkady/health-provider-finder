@@ -10,6 +10,7 @@ import {
 import { type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { PwaRegister } from "@/components/pwa/PwaRegister";
 import { Toaster } from "@/components/ui/sonner";
 
 function NotFoundComponent() {
@@ -88,17 +89,31 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "theme-color", content: "#2d6b7a" },
+      { name: "mobile-web-app-capable", content: "yes" },
+      { name: "apple-mobile-web-app-capable", content: "yes" },
+      { name: "apple-mobile-web-app-title", content: "دليل مقدمي الخدمة" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.ico", sizes: "48x48" },
       {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap",
+        rel: "icon",
+        href: "/icons/favicon-32.png",
+        sizes: "32x32",
+        type: "image/png",
       },
+      {
+        rel: "icon",
+        href: "/icons/favicon-16.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+      { rel: "apple-touch-icon", href: "/icons/apple-touch-icon.png" },
+      { rel: "manifest", href: "/manifest.webmanifest" },
     ],
   }),
   shellComponent: RootShell,
@@ -127,6 +142,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
+      <PwaRegister />
       <Toaster position="top-center" richColors dir="rtl" />
     </QueryClientProvider>
   );

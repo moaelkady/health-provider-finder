@@ -3,6 +3,7 @@ import { Bookmark, Heart, Search, Settings } from "lucide-react";
 import type { ReactNode } from "react";
 
 import { BrokerHelpButton } from "@/components/layout/BrokerHelpButton";
+import { OfflineBanner } from "@/components/pwa/OfflineBanner";
 import { SosButton } from "@/components/sos/SosButton";
 import { cn } from "@/lib/utils";
 
@@ -22,6 +23,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-dvh bg-background">
+      <OfflineBanner />
       {/* Mobile-first: sticky top bar */}
       <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur">
         <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 px-4">

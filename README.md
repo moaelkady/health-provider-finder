@@ -634,3 +634,20 @@ For phone testing over LAN (HTTPS + geolocation):
 ```sh
 npm run dev:phone
 ```
+
+Production build (includes service worker generation):
+
+```sh
+npm run build
+```
+
+### PWA / offline
+
+The app is installable as a Progressive Web App.
+
+- Open the site **once while online** so the service worker can precache JS/CSS, icons, fonts, and the provider JSON (~8 MB).
+- After that, search, filters, favorites, and provider details work offline.
+- Maps, WhatsApp/call, geolocation, and SOS still need device capabilities / network.
+- When offline, a banner shows: "أنت غير متصل — يتم عرض البيانات المحفوظة".
+- Custom teal healthcare icons live under `public/icons/` (favicon + install icons).
+- Manifest: `public/manifest.webmanifest`. Service worker is generated after `vite build` by `scripts/generate-sw.mjs` into `.output/public/sw.js` (required because TanStack Start’s SSR build is incompatible with `vite-plugin-pwa` SW hooks).
