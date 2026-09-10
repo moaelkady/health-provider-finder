@@ -43,7 +43,7 @@ export function BrokerHelpButton({ className }: { className?: string }) {
             href={brokerWhatsAppUrl()}
             target="_blank"
             rel="noreferrer"
-            className="cursor-pointer gap-2 text-emerald-800 focus:text-emerald-900"
+            className="cursor-pointer gap-2 text-emerald-800 focus:text-emerald-900 dark:text-emerald-300 dark:focus:text-emerald-200"
           >
             <MessageCircle className="size-4" />
             واتساب

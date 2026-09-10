@@ -148,7 +148,7 @@ export function ProviderDetail({ provider, isFavorite, onToggleFavorite }: Props
                             asChild
                             size="sm"
                             variant="outline"
-                            className="h-10 border-emerald-200 text-emerald-800 hover:bg-emerald-50"
+                            className="h-10 border-emerald-200 text-emerald-800 hover:bg-emerald-50 dark:border-emerald-800 dark:text-emerald-300 dark:hover:bg-emerald-950/50"
                           >
                             <a href={wa} target="_blank" rel="noreferrer">
                               <MessageCircle className="size-4" />

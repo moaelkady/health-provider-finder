@@ -3,6 +3,7 @@ import { Bookmark, Heart, Search, Settings } from "lucide-react";
 import type { ReactNode } from "react";
 
 import { BrokerHelpButton } from "@/components/layout/BrokerHelpButton";
+import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { InstallAppButton } from "@/components/pwa/InstallAppButton";
 import { OfflineBanner } from "@/components/pwa/OfflineBanner";
 import { SosButton } from "@/components/sos/SosButton";
@@ -27,10 +28,13 @@ export function AppShell({ children }: { children: ReactNode }) {
       <OfflineBanner />
       {/* Mobile-first: sticky top bar */}
       <header className="sticky top-0 z-30 border-b border-border bg-background/95 backdrop-blur">
-        <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-3 px-4">
+        <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-2 px-4 sm:gap-3">
           <BrokerHelpButton className="min-w-0 shrink" />
-          <InstallAppButton className="shrink-0" />
-          <SosButton className="shrink-0" />
+          <div className="flex shrink-0 items-center gap-1.5 sm:gap-2">
+            <ThemeToggle />
+            <InstallAppButton className="shrink-0" />
+            <SosButton className="shrink-0" />
+          </div>
         </div>
       </header>
 

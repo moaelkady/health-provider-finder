@@ -6,12 +6,21 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useSosContacts } from "@/hooks/useSosContacts";
+import { useTheme } from "@/hooks/useTheme";
 import {
   isAtlasEasterAttempt,
   isAtlasEasterSecret,
   shouldMaskAtlasPhone,
 } from "@/lib/atlas-access";
 import { EGYPT_AMBULANCE } from "@/lib/sos";
+import type { ThemePreference } from "@/lib/theme";
+import { cn } from "@/lib/utils";
+
+const THEME_OPTIONS: { value: ThemePreference; label: string }[] = [
+  { value: "light", label: "فاتح" },
+  { value: "dark", label: "داكن" },
+  { value: "system", label: "تلقائي" },
+];
 
 export const Route = createFileRoute("/_app/settings")({
   component: SettingsPage,
@@ -28,6 +37,7 @@ export const Route = createFileRoute("/_app/settings")({
 
 function SettingsPage() {
   const navigate = useNavigate();
+  const { preference, setPreference } = useTheme();
   const { contacts, addContact, removeContact, moveContactToTop, maxContacts } =
     useSosContacts();
   const [label, setLabel] = useState("");
@@ -71,16 +81,43 @@ function SettingsPage() {
           الإعدادات
         </h1>
         <p className="mt-1 text-sm text-muted-foreground">
-          طوارئ SOS، جهات واتساب الموثوقة، ونصائح استخدام الدليل.
+          المظهر، طوارئ SOS، جهات واتساب الموثوقة، ونصائح استخدام الدليل.
         </p>
       </div>
 
-      <section className="space-y-3 rounded-xl border border-red-200 bg-red-50/40 p-4 shadow-card sm:p-6">
-        <h2 className="text-base font-semibold text-red-800">طوارئ SOS</h2>
+      <section className="space-y-3 rounded-xl border border-border bg-card p-4 shadow-card sm:p-6">
+        <div>
+          <h2 className="text-base font-semibold text-foreground">المظهر</h2>
+          <p className="mt-1 text-sm text-muted-foreground">
+            اختر الوضع الفاتح أو الداكن، أو اتبع إعدادات الجهاز.
+          </p>
+        </div>
+        <div className="grid grid-cols-3 gap-2" role="group" aria-label="المظهر">
+          {THEME_OPTIONS.map(({ value, label: optionLabel }) => {
+            const active = preference === value;
+            return (
+              <Button
+                key={value}
+                type="button"
+                variant={active ? "default" : "outline"}
+                className={cn("h-11", !active && "bg-background")}
+                aria-pressed={active}
+                onClick={() => setPreference(value)}
+              >
+                {optionLabel}
+              </Button>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="space-y-3 rounded-xl border border-red-200 bg-red-50/40 p-4 shadow-card dark:border-red-900/60 dark:bg-red-950/30 sm:p-6">
+        <h2 className="text-base font-semibold text-red-800 dark:text-red-300">طوارئ SOS</h2>
         <ul className="list-disc space-y-2 pe-5 text-sm leading-relaxed text-muted-foreground">
           <li>
-            زر <span className="font-semibold text-red-700">SOS</span> أعلى الشاشة يفتح شاشة
-            طوارئ فورية.
+            زر{" "}
+            <span className="font-semibold text-red-700 dark:text-red-300">SOS</span> أعلى
+            الشاشة يفتح شاشة طوارئ فورية.
           </li>
           <li>
             يبدأ عدّ تنازلي لمدة 5 ثوانٍ. إن لم تختر شيئاً، يتصل التطبيق تلقائياً بالإسعاف{" "}
@@ -123,7 +160,7 @@ function SettingsPage() {
                   <p className="truncate text-sm font-medium text-foreground">
                     {contact.label}
                     {index === 0 && (
-                      <span className="ms-2 text-xs font-normal text-emerald-700">
+                      <span className="ms-2 text-xs font-normal text-emerald-700 dark:text-emerald-400">
                         (الأولى)
                       </span>
                     )}

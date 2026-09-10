@@ -12,7 +12,7 @@ export function SosButton({ className }: { className?: string }) {
         type="button"
         onClick={() => setOpen(true)}
         className={cn(
-          "inline-flex min-h-9 min-w-14 items-center justify-center rounded-full border border-red-200 bg-red-50 px-3.5 py-1.5 text-sm font-bold tracking-wide text-red-700 shadow-sm transition-colors hover:bg-red-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-300",
+          "inline-flex min-h-9 min-w-14 items-center justify-center rounded-full border border-red-200 bg-red-50 px-3.5 py-1.5 text-sm font-bold tracking-wide text-red-700 shadow-sm transition-colors hover:bg-red-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-300 dark:border-red-900/70 dark:bg-red-950/50 dark:text-red-300 dark:hover:bg-red-950/80 dark:focus-visible:ring-red-800",
           className,
         )}
         aria-label="طوارئ SOS"

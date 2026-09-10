@@ -166,7 +166,7 @@ export function SosEmergencySheet({
       }}
     >
       <DialogContent
-        className="max-w-md gap-5 border-red-200 sm:rounded-2xl"
+        className="max-w-md gap-5 border-red-200 dark:border-red-900/60 sm:rounded-2xl"
         onPointerDownOutside={(e) => e.preventDefault()}
         onEscapeKeyDown={(e) => {
           e.preventDefault();
@@ -174,7 +174,9 @@ export function SosEmergencySheet({
         }}
       >
         <DialogHeader className="space-y-2 text-start">
-          <DialogTitle className="text-xl text-red-700">طوارئ SOS</DialogTitle>
+          <DialogTitle className="text-xl text-red-700 dark:text-red-300">
+            طوارئ SOS
+          </DialogTitle>
           <DialogDescription className="text-sm leading-relaxed">
             اختر إجراءً الآن، أو سيتم الاتصال بالإسعاف{" "}
             <span className="font-semibold text-foreground" dir="ltr">
@@ -187,7 +189,7 @@ export function SosEmergencySheet({
 
         <div className="space-y-2">
           <div
-            className="h-3 w-full overflow-hidden rounded-full bg-red-100"
+            className="h-3 w-full overflow-hidden rounded-full bg-red-100 dark:bg-red-950/80"
             role="progressbar"
             aria-valuenow={Math.round(progress)}
             aria-valuemin={0}
@@ -195,11 +197,14 @@ export function SosEmergencySheet({
             aria-label="العد التنازلي للاتصال بالطوارئ"
           >
             <div
-              className="h-full rounded-full bg-red-500 transition-[width] duration-100 ease-linear"
+              className="h-full rounded-full bg-red-500 transition-[width] duration-100 ease-linear dark:bg-red-400"
               style={{ width: `${progress}%` }}
             />
           </div>
-          <p className="text-center text-2xl font-bold tabular-nums text-red-700" dir="ltr">
+          <p
+            className="text-center text-2xl font-bold tabular-nums text-red-700 dark:text-red-300"
+            dir="ltr"
+          >
             {secondsLeft}
           </p>
           <p className="text-center text-xs text-muted-foreground">{locationHint}</p>
@@ -211,7 +216,7 @@ export function SosEmergencySheet({
             className={cn(
               "h-14 w-full text-base font-semibold",
               primaryContact
-                ? "bg-emerald-600 text-white hover:bg-emerald-700"
+                ? "bg-emerald-600 text-white hover:bg-emerald-700 dark:bg-emerald-600 dark:hover:bg-emerald-500"
                 : "bg-muted text-muted-foreground",
             )}
             disabled={!primaryContact || waBusy}

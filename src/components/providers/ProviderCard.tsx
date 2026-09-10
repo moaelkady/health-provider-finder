@@ -109,7 +109,7 @@ export const ProviderCard = memo(function ProviderCard({
             mode="whatsapp"
             numbers={mobiles}
             hrefFor={(n) => whatsappUrl(n, waMessage) ?? "#"}
-            className="border-emerald-200 text-emerald-800 hover:bg-emerald-50 hover:text-emerald-900"
+            className="border-emerald-200 text-emerald-800 hover:bg-emerald-50 hover:text-emerald-900 dark:border-emerald-800 dark:text-emerald-300 dark:hover:bg-emerald-950/50 dark:hover:text-emerald-200"
           >
             <MessageCircle className="size-4" />
             واتساب
