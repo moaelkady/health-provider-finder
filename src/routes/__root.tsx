@@ -7,6 +7,8 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
@@ -151,6 +153,8 @@ function RootComponent() {
       <Outlet />
       <PwaRegister />
       <Toaster position="top-center" richColors dir="rtl" />
+      <Analytics />
+      <SpeedInsights />
     </QueryClientProvider>
   );
 }
