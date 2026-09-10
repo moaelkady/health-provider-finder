@@ -66,6 +66,26 @@ async function main() {
   console.log(
     `[build-providers-index] Wrote ${providers.length} providers → ${outPath} (${sizeMb.toFixed(2)} MB)`,
   );
+
+  // Slim atlas points: only geocoded rows, compact fields for the hidden map.
+  const mapPointsPath = path.join(root, "public/data/generated/map-points.min.json");
+  const mapPoints = [];
+  for (const p of providers) {
+    const c = p.location?.coordinates;
+    if (!c || typeof c.lat !== "number" || typeof c.lng !== "number") continue;
+    mapPoints.push({
+      id: p.id,
+      lat: c.lat,
+      lng: c.lng,
+      name: p.name,
+      type: p.type,
+    });
+  }
+  writeFileSync(mapPointsPath, JSON.stringify(mapPoints));
+  const pointsMb = Buffer.byteLength(JSON.stringify(mapPoints)) / 1024 / 1024;
+  console.log(
+    `[build-providers-index] Wrote ${mapPoints.length} map points → ${mapPointsPath} (${pointsMb.toFixed(2)} MB)`,
+  );
 }
 
 main().catch((error) => {

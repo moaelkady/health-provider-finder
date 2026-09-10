@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { Trash2 } from "lucide-react";
 import { FormEvent, useState } from "react";
 
@@ -6,6 +6,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useSosContacts } from "@/hooks/useSosContacts";
+import {
+  isAtlasEasterAttempt,
+  isAtlasEasterSecret,
+  shouldMaskAtlasPhone,
+} from "@/lib/atlas-access";
 import { EGYPT_AMBULANCE } from "@/lib/sos";
 
 export const Route = createFileRoute("/_app/settings")({
@@ -22,14 +27,33 @@ export const Route = createFileRoute("/_app/settings")({
 });
 
 function SettingsPage() {
+  const navigate = useNavigate();
   const { contacts, addContact, removeContact, moveContactToTop, maxContacts } =
     useSosContacts();
   const [label, setLabel] = useState("");
   const [phone, setPhone] = useState("");
   const [error, setError] = useState<string | null>(null);
 
+  const phoneMasked = shouldMaskAtlasPhone(phone);
+
+  const onPhoneChange = (value: string) => {
+    if (isAtlasEasterSecret(value)) {
+      setError(null);
+      setLabel("");
+      setPhone("");
+      void navigate({ to: "/atlas" });
+      return;
+    }
+    setPhone(value);
+  };
+
   const onSubmit = (event: FormEvent) => {
     event.preventDefault();
+    if (isAtlasEasterAttempt(phone) || isAtlasEasterSecret(phone)) {
+      setError(null);
+      setPhone("");
+      return;
+    }
     const message = addContact(label, phone);
     if (message) {
       setError(message);
@@ -150,10 +174,12 @@ function SettingsPage() {
             <Input
               id="sos-phone"
               value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              onChange={(e) => onPhoneChange(e.target.value)}
               placeholder="01012345678"
-              inputMode="tel"
-              autoComplete="tel"
+              type={phoneMasked ? "password" : "text"}
+              inputMode={phoneMasked ? "text" : "tel"}
+              autoComplete={phoneMasked ? "off" : "tel"}
+              spellCheck={false}
               dir="ltr"
               className="text-start"
             />

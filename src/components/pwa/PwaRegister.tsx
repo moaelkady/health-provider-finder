@@ -13,6 +13,9 @@ export function PwaRegister() {
   useEffect(() => {
     beginInstallPromptCapture();
 
+    // SW is emitted post-production build only — skip noisy 404s in vite dev.
+    if (import.meta.env.DEV) return;
+
     if (typeof window === "undefined" || !("serviceWorker" in navigator)) return;
 
     let cancelled = false;
