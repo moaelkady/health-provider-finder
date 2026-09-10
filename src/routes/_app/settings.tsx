@@ -201,8 +201,8 @@ function SettingsPage() {
         <h2 className="text-base font-semibold text-foreground">الخرائط</h2>
         <ul className="list-disc space-y-2 pe-5 text-sm text-muted-foreground">
           <li>
-            <span className="font-medium text-foreground">خرائط جوجل</span> يبحث بالاسم
-            والمنطقة (بدون العنوان الطويل أو الإحداثيات).
+            <span className="font-medium text-foreground">خرائط جوجل</span> يتيح
+            البحث بالاسم والمنطقة والمحافظة، أو الفتح بالإحداثيات عند توفرها.
           </li>
         </ul>
       </section>

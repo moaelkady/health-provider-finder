@@ -1,13 +1,12 @@
-import { ExternalLink, MapPin, Navigation } from "lucide-react";
+import { MapPin, Navigation } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-import { mapsActionLabel, mapsSearchUrl } from "@/lib/contact-actions";
+import { MapsActionMenu } from "@/components/providers/MapsActionMenu";
 import { formatDistanceKm } from "@/lib/geo";
 import { hasExactLocation } from "@/lib/maps";
 import type { Provider } from "@/types/provider";
 
 /**
- * Location summary + Maps CTA (address search — stored coords are often inaccurate).
+ * Location summary + Maps CTA (text search and/or coordinates).
  */
 export function LocationCard({ provider }: { provider: Provider }) {
   const { location } = provider;
@@ -53,12 +52,12 @@ export function LocationCard({ provider }: { provider: Provider }) {
             {formatDistanceKm(location.distanceKm)}
           </p>
         )}
-        <Button asChild className="h-11 w-full">
-          <a href={mapsSearchUrl(provider)} target="_blank" rel="noreferrer">
-            <ExternalLink className="size-4" />
-            {mapsActionLabel()}
-          </a>
-        </Button>
+        <MapsActionMenu
+          provider={provider}
+          size="default"
+          variant="default"
+          className="h-11"
+        />
       </div>
     </section>
   );

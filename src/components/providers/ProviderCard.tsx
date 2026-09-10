@@ -1,12 +1,11 @@
 import { Link } from "@tanstack/react-router";
-import { Heart, MapPin, Navigation, Phone, ExternalLink, MessageCircle } from "lucide-react";
+import { Heart, MapPin, Navigation, Phone, MessageCircle } from "lucide-react";
 import { memo } from "react";
 
+import { MapsActionMenu } from "@/components/providers/MapsActionMenu";
 import { PhoneActionMenu } from "@/components/providers/PhoneActionMenu";
 import { Button } from "@/components/ui/button";
 import {
-  mapsActionLabel,
-  mapsSearchUrl,
   providerMobilePhones,
   providerPhones,
   providerWhatsAppMessage,
@@ -116,12 +115,7 @@ export const ProviderCard = memo(function ProviderCard({
             واتساب
           </PhoneActionMenu>
         )}
-        <Button asChild size="sm" variant="outline" className="h-10 w-full">
-          <a href={mapsSearchUrl(provider)} target="_blank" rel="noreferrer">
-            <ExternalLink className="size-4" />
-            {mapsActionLabel()}
-          </a>
-        </Button>
+        <MapsActionMenu provider={provider} />
         <Button asChild size="sm" variant="outline" className="h-10 w-full">
           <Link to="/providers/$providerId" params={{ providerId: provider.id }}>
             التفاصيل

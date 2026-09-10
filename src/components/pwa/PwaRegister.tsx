@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { toast } from "sonner";
 
+import { beginInstallPromptCapture } from "@/lib/pwa-install";
+
 const RELOAD_FLAG = "pwa-sw-reload";
 
 /**
@@ -9,6 +11,8 @@ const RELOAD_FLAG = "pwa-sw-reload";
  */
 export function PwaRegister() {
   useEffect(() => {
+    beginInstallPromptCapture();
+
     if (typeof window === "undefined" || !("serviceWorker" in navigator)) return;
 
     let cancelled = false;

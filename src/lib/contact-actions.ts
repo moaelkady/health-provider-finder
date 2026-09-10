@@ -60,22 +60,32 @@ function mapsSearchName(name: string): string {
     .trim();
 }
 
+function mapsPlacePart(value: string | undefined): string {
+  if (!value || value === "—") return "";
+  return value.trim();
+}
+
 /**
- * Short Maps text search — long address dumps often return nothing.
- * Prefer «الاسم، المنطقة» (same pattern that works in the Maps search box).
+ * Maps text search using Arabic-first display fields:
+ * «الاسم، المنطقة، المحافظة» (skip empty / —).
  */
 export function mapsSearchUrl(provider: Provider): string {
   const { location } = provider;
-  const name = mapsSearchName(provider.name);
-  const area = location.area && location.area !== "—" ? location.area : "";
-  const governorate =
-    location.governorate && location.governorate !== "—" ? location.governorate : "";
+  const parts = [
+    mapsSearchName(provider.name),
+    mapsPlacePart(location.area),
+    mapsPlacePart(location.governorate),
+  ].filter(Boolean);
 
-  const parts = [name];
-  if (area) parts.push(area);
-  else if (governorate) parts.push(governorate);
+  const query = parts.join("، ");
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
 
-  const query = parts.filter(Boolean).join("، ");
+/** Open Maps at stored coordinates, or null if missing. */
+export function mapsCoordsUrl(provider: Provider): string | null {
+  const coords = provider.location.coordinates;
+  if (!coords) return null;
+  const query = `${coords.lat},${coords.lng}`;
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 }
 

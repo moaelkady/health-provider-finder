@@ -1,11 +1,16 @@
 /**
  * Google Maps link building.
  *
- * Prefer address/text search — many stored coordinates are approximate or wrong.
+ * Text search uses Arabic-first name + area + governorate.
+ * Coordinates are available as an alternate open path when present.
  */
 
 import type { Provider } from "@/types/provider";
-import { mapsActionLabel as label, mapsSearchUrl } from "@/lib/contact-actions";
+import {
+  mapsActionLabel as label,
+  mapsCoordsUrl,
+  mapsSearchUrl,
+} from "@/lib/contact-actions";
 
 export function hasExactLocation(provider: Provider): boolean {
   return provider.location.precision === "exact" && !!provider.location.coordinates;
@@ -19,3 +24,5 @@ export function mapsUrl(provider: Provider): string {
 export function mapsActionLabel(_provider?: Provider): string {
   return label();
 }
+
+export { mapsCoordsUrl, mapsSearchUrl };

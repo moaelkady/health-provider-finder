@@ -14,18 +14,26 @@ interface Props {
   distances?: Map<string, number> | undefined;
 }
 
+/** Column count from the list container width (not the viewport). */
+function columnsForWidth(width: number): number {
+  if (width >= 1024) return 3;
+  if (width >= 640) return 2;
+  return 1;
+}
+
 function useGridColumns(containerRef: React.RefObject<HTMLElement | null>) {
   const [columns, setColumns] = useState(1);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const node = containerRef.current;
-    if (!node || typeof ResizeObserver === "undefined") return;
+    if (!node) return;
 
     const update = () => {
-      const width = node.clientWidth;
-      setColumns(width >= 1280 ? 3 : width >= 768 ? 2 : 1);
+      setColumns(columnsForWidth(node.clientWidth));
     };
     update();
+
+    if (typeof ResizeObserver === "undefined") return;
     const observer = new ResizeObserver(update);
     observer.observe(node);
     return () => observer.disconnect();
@@ -102,7 +110,12 @@ export function ProviderList({
                 transform: `translateY(${virtualRow.start - scrollMargin}px)`,
               }}
             >
-              <div className="grid gap-3 pb-3 md:grid-cols-2 xl:grid-cols-3">
+              <div
+                className="grid gap-3 pb-3"
+                style={{
+                  gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
+                }}
+              >
                 {row.map((provider) => {
                   const distanceKm = distances?.get(provider.id);
                   const withDistance =
