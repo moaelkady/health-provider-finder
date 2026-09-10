@@ -14,10 +14,10 @@ import { cn } from "@/lib/utils";
 
 /**
  * Header CTA: install / add-to-home-screen when running in the browser (not as PWA).
- * Chromium can install directly via beforeinstallprompt; iOS needs manual steps.
+ * Chromium can install directly via beforeinstallprompt; iOS / Mac Safari need manual steps.
  */
 export function InstallAppButton({ className }: { className?: string }) {
-  const { showInstall, ios, canNativePrompt, promptInstall } = usePwaInstall();
+  const { showInstall, ios, macSafari, canNativePrompt, promptInstall } = usePwaInstall();
   const [helpOpen, setHelpOpen] = useState(false);
 
   if (!showInstall) return null;
@@ -29,7 +29,7 @@ export function InstallAppButton({ className }: { className?: string }) {
       return;
     }
     if (outcome === "dismissed") return;
-    // No native prompt (iOS, Firefox, or Chrome criteria not met yet)
+    // No native prompt (iOS, Mac Safari, Firefox, or Chrome criteria not met yet)
     setHelpOpen(true);
   };
 
@@ -42,7 +42,7 @@ export function InstallAppButton({ className }: { className?: string }) {
           "inline-flex min-h-9 items-center gap-1.5 rounded-full border border-primary/25 bg-primary/10 px-3 py-1.5 text-sm font-semibold text-primary shadow-sm transition-colors hover:bg-primary/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
           className,
         )}
-        aria-label="تثبيت التطبيق على الهاتف"
+        aria-label="تثبيت التطبيق"
       >
         <Download className="size-3.5 shrink-0" />
         <span className="whitespace-nowrap">
@@ -54,13 +54,17 @@ export function InstallAppButton({ className }: { className?: string }) {
       <Dialog open={helpOpen} onOpenChange={setHelpOpen}>
         <DialogContent className="max-w-sm">
           <DialogHeader>
-            <DialogTitle>تثبيت الدليل على هاتفك</DialogTitle>
+            <DialogTitle>
+              {macSafari ? "تثبيت الدليل على جهازك" : "تثبيت الدليل على هاتفك"}
+            </DialogTitle>
             <DialogDescription>
               {canNativePrompt
                 ? "أضف التطبيق لشاشتك الرئيسية لفتحه بسرعة."
                 : ios
                   ? "على آيفون لا يمكن التثبيت تلقائياً — اتبع الخطوات التالية."
-                  : "المتصفح لم يعرض زر التثبيت التلقائي بعد. يمكنك إضافته يدوياً:"}
+                  : macSafari
+                    ? "على Mac عبر Safari، أضف التطبيق إلى الـ Dock يدوياً:"
+                    : "المتصفح لم يعرض زر التثبيت التلقائي بعد. يمكنك إضافته يدوياً:"}
             </DialogDescription>
           </DialogHeader>
           {ios ? (
@@ -73,6 +77,17 @@ export function InstallAppButton({ className }: { className?: string }) {
               <li className="leading-relaxed">اختر «إضافة إلى الشاشة الرئيسية».</li>
               <li className="leading-relaxed">
                 فعّل «فتح كتطبيق ويب» إن ظهر الخيار، ثم اضغط إضافة.
+              </li>
+            </ol>
+          ) : macSafari ? (
+            <ol className="list-decimal space-y-2 pe-5 text-sm text-foreground">
+              <li className="leading-relaxed">
+                من شريط القائمة اختر <span className="font-medium">File</span> ثم{" "}
+                <span className="font-medium">Add to Dock…</span>
+              </li>
+              <li className="leading-relaxed">أكّد الإضافة إلى الـ Dock.</li>
+              <li className="leading-relaxed">
+                افتح التطبيق من الـ Dock مرة واحدة ليُحفظ كتثبيت على الجهاز.
               </li>
             </ol>
           ) : (
