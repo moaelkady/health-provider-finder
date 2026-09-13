@@ -31,6 +31,7 @@ export interface AtlasFilterOptions {
   type: string | null;
   governorate: string | null;
   network: string | null;
+  status: string | null;
   favoritesOnly: boolean;
   favoriteIds: Set<string>;
   userPosition: AtlasLatLng | null;
@@ -46,6 +47,7 @@ export function filterAtlasPoints(
     if (options.type && point.type !== options.type) return false;
     if (options.governorate && point.governorate !== options.governorate) return false;
     if (options.network && point.network !== options.network) return false;
+    if (options.status && point.status !== options.status) return false;
     if (options.favoritesOnly && !options.favoriteIds.has(point.id)) return false;
     if (q) {
       const hay = normalizeAtlasQuery(
@@ -126,6 +128,32 @@ export function distinctAtlasNetworks(
   userPosition: AtlasLatLng | null = null,
 ): string[] {
   return distinctAtlasFacetValues(points, (p) => p.network, userPosition);
+}
+
+export function distinctAtlasStatuses(
+  points: AtlasMapPoint[],
+  userPosition: AtlasLatLng | null = null,
+): string[] {
+  return distinctAtlasFacetValues(points, (p) => p.status, userPosition);
+}
+
+/** Governorate of the nearest map point to the user, or null. */
+export function nearestAtlasGovernorate(
+  points: AtlasMapPoint[],
+  userPosition: AtlasLatLng,
+): string | null {
+  let best: string | null = null;
+  let bestKm = Number.POSITIVE_INFINITY;
+  for (const point of points) {
+    const gov = point.governorate?.trim();
+    if (!gov) continue;
+    const km = haversineKm(userPosition, { lat: point.lat, lng: point.lng });
+    if (km < bestKm) {
+      bestKm = km;
+      best = gov;
+    }
+  }
+  return best;
 }
 
 export function atlasMapsCoordsUrl(lat: number, lng: number): string {

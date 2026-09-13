@@ -7,5 +7,6 @@ export interface AtlasMapPoint {
   area?: string;
   governorate?: string;
   network?: string;
+  status?: string;
   phone?: string;
 }

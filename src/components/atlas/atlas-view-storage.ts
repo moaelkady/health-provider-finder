@@ -11,6 +11,7 @@ export interface AtlasFilterState {
   type: string | null;
   governorate: string | null;
   network: string | null;
+  status: string | null;
   radiusKm: AtlasRadiusKm | null;
   favoritesOnly: boolean;
   query: string;

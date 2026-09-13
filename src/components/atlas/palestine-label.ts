@@ -25,7 +25,7 @@ export function attachPalestineLabel(map: google.maps.Map): () => void {
       this.position = position;
     }
 
-    onAdd() {
+    override onAdd() {
       const div = document.createElement("div");
       div.textContent = "فلسطين";
       div.setAttribute("dir", "rtl");
@@ -54,7 +54,7 @@ export function attachPalestineLabel(map: google.maps.Map): () => void {
       }
     }
 
-    draw() {
+    override draw() {
       const div = this.div;
       const projection = this.getProjection();
       if (!div || !projection) return;
@@ -79,7 +79,7 @@ export function attachPalestineLabel(map: google.maps.Map): () => void {
       div.style.top = `${point.y}px`;
     }
 
-    onRemove() {
+    override onRemove() {
       if (this.zoomListener) {
         google.maps.event.removeListener(this.zoomListener);
         this.zoomListener = null;

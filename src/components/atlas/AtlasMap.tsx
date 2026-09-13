@@ -18,10 +18,12 @@ import { toast } from "sonner";
 import {
   distinctAtlasGovernorates,
   distinctAtlasNetworks,
+  distinctAtlasStatuses,
   distinctAtlasTypes,
   filterAtlasPoints,
   fitAtlasToPoints,
   haversineKm,
+  nearestAtlasGovernorate,
   sortAtlasPoints,
   type AtlasLatLng,
 } from "@/components/atlas/atlas-geo";
@@ -70,6 +72,9 @@ const LIST_CAP = 50;
 const CLUSTER_LIST_MAX = 50;
 const FIT_WHEN_AT_MOST = 200;
 const RADIUS_OPTIONS: AtlasRadiusKm[] = [5, 10, 25];
+const RADIUS_NEED_GPS = "فعّل «موقعي» ثم اختر ٥ / ١٠ / ٢٥ كم";
+const RADIUS_EMPTY_NEED_GPS = "نطاق القرب يحتاج موقعك — اضغط «موقعي»";
+const EMPTY_FILTERS = "لا نتائج ضمن التصفية الحالية";
 
 type GmWindow = Window & { gm_authFailure?: () => void };
 
@@ -123,6 +128,9 @@ export default function AtlasMap({ apiKey, onLock, initialId, initialQuery }: Pr
   const [networkFilter, setNetworkFilter] = useState<string | null>(
     () => savedFilters?.network ?? null,
   );
+  const [statusFilter, setStatusFilter] = useState<string | null>(
+    () => savedFilters?.status ?? null,
+  );
   const [radiusKm, setRadiusKm] = useState<AtlasRadiusKm | null>(
     () => savedFilters?.radiusKm ?? null,
   );
@@ -136,12 +144,14 @@ export default function AtlasMap({ apiKey, onLock, initialId, initialQuery }: Pr
   const [types, setTypes] = useState<string[]>([]);
   const [governorates, setGovernorates] = useState<string[]>([]);
   const [networks, setNetworks] = useState<string[]>([]);
+  const [statuses, setStatuses] = useState<string[]>([]);
   const [filtered, setFiltered] = useState<AtlasMapPoint[]>([]);
 
   const activeFilterCount =
     (typeFilter ? 1 : 0) +
     (governorateFilter ? 1 : 0) +
     (networkFilter ? 1 : 0) +
+    (statusFilter ? 1 : 0) +
     (favoritesOnly ? 1 : 0) +
     (radiusKm != null ? 1 : 0);
 
@@ -188,11 +198,20 @@ export default function AtlasMap({ apiKey, onLock, initialId, initialQuery }: Pr
       type: typeFilter,
       governorate: governorateFilter,
       network: networkFilter,
+      status: statusFilter,
       radiusKm,
       favoritesOnly,
       query,
     });
-  }, [favoritesOnly, governorateFilter, networkFilter, query, radiusKm, typeFilter]);
+  }, [
+    favoritesOnly,
+    governorateFilter,
+    networkFilter,
+    query,
+    radiusKm,
+    statusFilter,
+    typeFilter,
+  ]);
 
   useEffect(() => {
     if (!ready) return;
@@ -206,6 +225,7 @@ export default function AtlasMap({ apiKey, onLock, initialId, initialQuery }: Pr
     setTypes(distinctAtlasTypes(points, userPosition));
     setGovernorates(distinctAtlasGovernorates(points, userPosition));
     setNetworks(distinctAtlasNetworks(points, userPosition));
+    setStatuses(distinctAtlasStatuses(points, userPosition));
   }, [ready, userPosition]);
 
   const focusPoint = useCallback((point: AtlasMapPoint, zoom = 15) => {
@@ -322,12 +342,22 @@ export default function AtlasMap({ apiKey, onLock, initialId, initialQuery }: Pr
         setLocating(false);
         updateUserPosition(pos.coords, true);
         setFollowing(true);
+
+        const position = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+        setGovernorateFilter((current) => {
+          if (current != null) return current;
+          const nearest = nearestAtlasGovernorate(pointsRef.current, position);
+          if (!nearest) return current;
+          toast.message(`أقرب محافظة: ${nearest}`);
+          return nearest;
+        });
+
         if (watchIdRef.current != null) {
           navigator.geolocation.clearWatch(watchIdRef.current);
         }
         watchIdRef.current = navigator.geolocation.watchPosition(
           (next) => updateUserPosition(next.coords, false),
-          () => { },
+          () => {},
           { enableHighAccuracy: true, maximumAge: 5000, timeout: 20000 },
         );
       },
@@ -355,6 +385,7 @@ export default function AtlasMap({ apiKey, onLock, initialId, initialQuery }: Pr
     setTypeFilter(null);
     setGovernorateFilter(null);
     setNetworkFilter(null);
+    setStatusFilter(null);
     setRadiusKm(null);
     setFavoritesOnly(false);
     setListOverride(null);
@@ -375,6 +406,7 @@ export default function AtlasMap({ apiKey, onLock, initialId, initialQuery }: Pr
         type: typeFilter,
         governorate: governorateFilter,
         network: networkFilter,
+        status: statusFilter,
         favoritesOnly,
         favoriteIds,
         userPosition,
@@ -397,7 +429,7 @@ export default function AtlasMap({ apiKey, onLock, initialId, initialQuery }: Pr
 
   const onRadiusPick = (value: AtlasRadiusKm | null) => {
     if (value != null && !userPosition) {
-      toast.error("اضغط «موقعي» أولاً لاستخدام نطاق القرب");
+      toast.message(RADIUS_NEED_GPS);
       return;
     }
     setRadiusKm(value);
@@ -423,6 +455,7 @@ export default function AtlasMap({ apiKey, onLock, initialId, initialQuery }: Pr
       type: typeFilter,
       governorate: governorateFilter,
       network: networkFilter,
+      status: statusFilter,
       favoritesOnly,
       favoriteIds,
       userPosition,
@@ -431,7 +464,7 @@ export default function AtlasMap({ apiKey, onLock, initialId, initialQuery }: Pr
     setFiltered(next);
     setListOverride(null);
 
-    const filterKey = `${query}|${typeFilter}|${governorateFilter}|${networkFilter}|${favoritesOnly}|${radiusKm}|${favoriteIds.size}`;
+    const filterKey = `${query}|${typeFilter}|${governorateFilter}|${networkFilter}|${statusFilter}|${favoritesOnly}|${radiusKm}|${favoriteIds.size}`;
     const filterChanged = filterKey !== prevFilterKeyRef.current;
     prevFilterKeyRef.current = filterKey;
 
@@ -442,21 +475,21 @@ export default function AtlasMap({ apiKey, onLock, initialId, initialQuery }: Pr
       marker.setIcon(
         favoriteIds.has(point.id)
           ? {
-            path: google.maps.SymbolPath.CIRCLE,
-            scale: 8,
-            fillColor: "#e8b84a",
-            fillOpacity: 1,
-            strokeColor: "#0c1214",
-            strokeWeight: 1.5,
-          }
+              path: google.maps.SymbolPath.CIRCLE,
+              scale: 8,
+              fillColor: "#e8b84a",
+              fillOpacity: 1,
+              strokeColor: "#0c1214",
+              strokeWeight: 1.5,
+            }
           : {
-            path: google.maps.SymbolPath.CIRCLE,
-            scale: 7,
-            fillColor: "#5a9aaa",
-            fillOpacity: 0.95,
-            strokeColor: "#0c1214",
-            strokeWeight: 1.5,
-          },
+              path: google.maps.SymbolPath.CIRCLE,
+              scale: 7,
+              fillColor: "#5a9aaa",
+              fillOpacity: 0.95,
+              strokeColor: "#0c1214",
+              strokeWeight: 1.5,
+            },
       );
       activeMarkers.push(marker);
     }
@@ -464,6 +497,8 @@ export default function AtlasMap({ apiKey, onLock, initialId, initialQuery }: Pr
     clusterer.clearMarkers();
     if (activeMarkers.length > 0) {
       clusterer.addMarkers(activeMarkers);
+    } else {
+      clusterer.render();
     }
 
     updateRadiusCircle(userPosition, radiusKm);
@@ -472,7 +507,11 @@ export default function AtlasMap({ apiKey, onLock, initialId, initialQuery }: Pr
       const now = Date.now();
       if (filterChanged && now - emptyToastAtRef.current > 1500) {
         emptyToastAtRef.current = now;
-        toast.message("لا نتائج ضمن التصفية الحالية");
+        if (radiusKm != null && !userPosition) {
+          toast.message(RADIUS_EMPTY_NEED_GPS);
+        } else {
+          toast.message(EMPTY_FILTERS);
+        }
       }
       return;
     }
@@ -489,6 +528,10 @@ export default function AtlasMap({ apiKey, onLock, initialId, initialQuery }: Pr
 
     if (next.length <= FIT_WHEN_AT_MOST) {
       fitAtlasToPoints(map, next, { maxZoom: 15, padding: 72 });
+      // fitBounds can leave clusters blank until the next idle — force a redraw.
+      google.maps.event.addListenerOnce(map, "idle", () => {
+        clustererRef.current?.render();
+      });
     }
   }, [
     favoriteIds,
@@ -498,6 +541,7 @@ export default function AtlasMap({ apiKey, onLock, initialId, initialQuery }: Pr
     query,
     radiusKm,
     ready,
+    statusFilter,
     typeFilter,
     updateRadiusCircle,
     userPosition,
@@ -540,6 +584,7 @@ export default function AtlasMap({ apiKey, onLock, initialId, initialQuery }: Pr
         setTypes(distinctAtlasTypes(points, userPositionRef.current));
         setGovernorates(distinctAtlasGovernorates(points, userPositionRef.current));
         setNetworks(distinctAtlasNetworks(points, userPositionRef.current));
+        setStatuses(distinctAtlasStatuses(points, userPositionRef.current));
 
         const { Map: GoogleMap } = mapsLib;
         const center = savedCamera?.center ?? EGYPT_CENTER;
@@ -559,7 +604,6 @@ export default function AtlasMap({ apiKey, onLock, initialId, initialQuery }: Pr
         applyAtlasTheme(map, initialTheme);
         setTheme(initialTheme);
         disposePalestineLabel = attachPalestineLabel(map);
-
         idleListener = map.addListener("idle", () => {
           if (!mapReadyForPersistRef.current) {
             const z = map.getZoom();
@@ -869,6 +913,22 @@ export default function AtlasMap({ apiKey, onLock, initialId, initialQuery }: Pr
                     </select>
                   </label>
 
+                  <label className="block space-y-1.5">
+                    <span className="text-[11px] text-[#6a8288]">الحالة</span>
+                    <select
+                      value={statusFilter ?? ""}
+                      onChange={(e) => setStatusFilter(e.target.value || null)}
+                      className="h-9 w-full rounded-lg border border-[#2a3c42] bg-[#0c1214] px-2 text-sm text-[#e8eef0]"
+                    >
+                      <option value="">الكل</option>
+                      {statuses.map((s) => (
+                        <option key={s} value={s}>
+                          {s}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+
                   <div className="space-y-1.5">
                     <span className="text-[11px] text-[#6a8288]">القرب</span>
                     <div className="flex flex-wrap gap-1.5">
@@ -888,7 +948,7 @@ export default function AtlasMap({ apiKey, onLock, initialId, initialQuery }: Pr
                       ))}
                     </div>
                     {!userPosition ? (
-                      <p className="text-[11px] text-[#5a7076]">فعّل «موقعي» لتفعيل نطاق القرب.</p>
+                      <p className="text-[11px] text-[#5a7076]">{RADIUS_NEED_GPS}</p>
                     ) : null}
                   </div>
 
@@ -951,7 +1011,12 @@ export default function AtlasMap({ apiKey, onLock, initialId, initialQuery }: Pr
                   </button>
                 </div>
                 {listItems.length === 0 ? (
-                  <p className="px-3 py-4 text-sm text-[#6a8288]">لا نتائج ضمن التصفية الحالية.</p>
+                  <p className="px-3 py-4 text-sm text-[#6a8288]">
+                    {radiusKm != null && !userPosition
+                      ? RADIUS_EMPTY_NEED_GPS
+                      : EMPTY_FILTERS}
+                    .
+                  </p>
                 ) : (
                   <ul>
                     {listItems.map((point) => {

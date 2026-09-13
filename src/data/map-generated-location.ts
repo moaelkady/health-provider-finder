@@ -4,13 +4,9 @@
  * Arabic fields are preferred; English is used only as fallback.
  */
 
+import { LOCATION_OVERRIDES } from "@/data/location-overrides";
 import { expandSourcePhones } from "@/lib/parse-phones";
-import type {
-  LocationPrecision,
-  NetworkTier,
-  Provider,
-  ProviderStatus,
-} from "@/types/provider";
+import type { LocationPrecision, NetworkTier, Provider, ProviderStatus } from "@/types/provider";
 
 export type GeneratedLocation = {
   id: string;
@@ -119,10 +115,7 @@ function mapStatus(pulseStatus: string | null, isActive: boolean): ProviderStatu
   return "قيد التفعيل";
 }
 
-function mapPrecision(
-  geocodingStatus: string | null,
-  hasCoords: boolean,
-): LocationPrecision {
+function mapPrecision(geocodingStatus: string | null, hasCoords: boolean): LocationPrecision {
   if (!hasCoords) return "unresolved";
   if (geocodingStatus === "geocoded") return "exact";
   if (geocodingStatus === "approximate") return "approximate";
@@ -130,8 +123,11 @@ function mapPrecision(
 }
 
 export function mapGeneratedLocation(row: GeneratedLocation): Provider {
-  const lat = row.location.latitude;
-  const lng = row.location.longitude;
+  const override = LOCATION_OVERRIDES[row.id];
+  const lat = override?.lat ?? row.location.latitude;
+  const lng = override?.lng ?? row.location.longitude;
+  const geocodingStatus = override?.geocodingStatus ?? row.location.geocodingStatus;
+  const formattedAddress = override?.formattedAddress ?? row.location.formattedAddress;
   const hasCoords =
     typeof lat === "number" &&
     typeof lng === "number" &&
@@ -150,10 +146,10 @@ export function mapGeneratedLocation(row: GeneratedLocation): Provider {
   if (emails[0]) contact.email = emails[0];
 
   const location: Provider["location"] = {
-    address: pickName(row.addressAr, row.addressEn, row.location.formattedAddress, "—"),
+    address: pickName(row.addressAr, row.addressEn, formattedAddress, "—"),
     area: pickName(row.areaAr, row.areaEn, "—"),
     governorate: pickName(row.governorateAr, row.governorateEn, "—"),
-    precision: mapPrecision(row.location.geocodingStatus, hasCoords),
+    precision: mapPrecision(geocodingStatus, hasCoords),
   };
   if (hasCoords) {
     location.coordinates = { lat: lat!, lng: lng! };

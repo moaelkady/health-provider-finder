@@ -90,6 +90,7 @@ async function main() {
     if (area && area !== "—") point.area = area;
     if (governorate && governorate !== "—") point.governorate = governorate;
     if (p.network) point.network = p.network;
+    if (p.status) point.status = p.status;
     if (phone) point.phone = phone;
     mapPoints.push(point);
   }
