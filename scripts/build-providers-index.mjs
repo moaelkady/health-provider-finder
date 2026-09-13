@@ -73,13 +73,25 @@ async function main() {
   for (const p of providers) {
     const c = p.location?.coordinates;
     if (!c || typeof c.lat !== "number" || typeof c.lng !== "number") continue;
-    mapPoints.push({
+    const area = typeof p.location?.area === "string" ? p.location.area.trim() : "";
+    const governorate =
+      typeof p.location?.governorate === "string" ? p.location.governorate.trim() : "";
+    const phone =
+      Array.isArray(p.contact?.phones) && typeof p.contact.phones[0] === "string"
+        ? p.contact.phones[0].trim()
+        : "";
+    const point = {
       id: p.id,
       lat: c.lat,
       lng: c.lng,
       name: p.name,
       type: p.type,
-    });
+    };
+    if (area && area !== "—") point.area = area;
+    if (governorate && governorate !== "—") point.governorate = governorate;
+    if (p.network) point.network = p.network;
+    if (phone) point.phone = phone;
+    mapPoints.push(point);
   }
   writeFileSync(mapPointsPath, JSON.stringify(mapPoints));
   const pointsMb = Buffer.byteLength(JSON.stringify(mapPoints)) / 1024 / 1024;

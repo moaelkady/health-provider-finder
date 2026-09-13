@@ -1,7 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Heart, Mail, MessageCircle, Phone } from "lucide-react";
+import { ArrowRight, Heart, Mail, MapPinned, MessageCircle, Phone } from "lucide-react";
+import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
+import { getAtlasMapsKey } from "@/lib/atlas-access";
 import {
   providerMobilePhones,
   providerPhones,
@@ -35,6 +37,16 @@ export function ProviderDetail({ provider, isFavorite, onToggleFavorite }: Props
   const phones = providerPhones(provider);
   const mobiles = new Set(providerMobilePhones(provider));
   const waMessage = providerWhatsAppMessage(provider);
+  const hasCoords = Boolean(provider.location.coordinates);
+  const [showAtlasLink, setShowAtlasLink] = useState(false);
+
+  useEffect(() => {
+    if (!hasCoords) {
+      setShowAtlasLink(false);
+      return;
+    }
+    setShowAtlasLink(Boolean(getAtlasMapsKey()));
+  }, [hasCoords]);
 
   return (
     <div className="space-y-4 sm:space-y-6">
@@ -80,8 +92,16 @@ export function ProviderDetail({ provider, isFavorite, onToggleFavorite }: Props
       </header>
 
       <div className="grid gap-4 sm:gap-6 lg:grid-cols-3">
-        <div className="order-first lg:order-last lg:sticky lg:top-20 lg:self-start">
+        <div className="order-first space-y-3 lg:order-last lg:sticky lg:top-20 lg:self-start">
           <LocationCard provider={provider} />
+          {showAtlasLink ? (
+            <Button asChild variant="outline" className="h-11 w-full">
+              <Link to="/atlas" search={{ id: provider.id }}>
+                <MapPinned className="size-4" />
+                عرض على الأطلس
+              </Link>
+            </Button>
+          ) : null}
         </div>
 
         <div className="space-y-4 sm:space-y-6 lg:col-span-2 lg:order-first">

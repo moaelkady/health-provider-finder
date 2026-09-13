@@ -6,7 +6,24 @@ import { clearAtlasMapsKey, getAtlasMapsKey, setAtlasMapsKey } from "@/lib/atlas
 
 const AtlasMap = lazy(() => import("@/components/atlas/AtlasMap"));
 
+type AtlasSearch = {
+  id?: string;
+  q?: string;
+};
+
 export const Route = createFileRoute("/atlas")({
+  validateSearch: (search: Record<string, unknown>): AtlasSearch => {
+    const next: AtlasSearch = {};
+    const id = search["id"];
+    const q = search["q"];
+    if (typeof id === "string" && id.trim()) {
+      next.id = id.trim();
+    }
+    if (typeof q === "string" && q.trim()) {
+      next.q = q.trim();
+    }
+    return next;
+  },
   component: AtlasPage,
   head: () => ({
     meta: [{ title: "· · ·" }],
@@ -16,6 +33,7 @@ export const Route = createFileRoute("/atlas")({
 type Phase = "boot" | "gate" | "checking" | "denied" | "unlocked";
 
 function AtlasPage() {
+  const { id: initialId, q: initialQuery } = Route.useSearch();
   const [phase, setPhase] = useState<Phase>("boot");
   const [mapsKey, setMapsKey] = useState<string | null>(null);
   const runIdRef = useRef(0);
@@ -59,7 +77,6 @@ function AtlasPage() {
       setPhase("gate");
     }
     return () => {
-      // Invalidate in-flight validation on unmount (Strict Mode remount).
       runIdRef.current += 1;
     };
   }, [runValidation]);
@@ -86,6 +103,8 @@ function AtlasPage() {
     <Suspense fallback={<AtlasKeyCheck phase="loading" />}>
       <AtlasMap
         apiKey={mapsKey}
+        initialId={initialId}
+        initialQuery={initialQuery}
         onLock={() => {
           clearAtlasMapsKey();
           setMapsKey(null);

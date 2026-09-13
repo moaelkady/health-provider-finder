@@ -4,4 +4,8 @@ export interface AtlasMapPoint {
   lng: number;
   name: string;
   type: string;
+  area?: string;
+  governorate?: string;
+  network?: string;
+  phone?: string;
 }
